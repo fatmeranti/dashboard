@@ -1,0 +1,3270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Dashboard FAT Team PT TMMS - monitoring cashflow, AR/AP, pajak & saldo bank.">
+<meta name="theme-color" content="#0a0e14">
+<title>PT TMMS - FAT Dashboard</title>
+<script>
+// Theme — apply BEFORE body renders to avoid flicker
+(function(){try{document.documentElement.setAttribute('data-theme', localStorage.getItem('tmms_theme') || 'light');}catch(e){}})();
+</script>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --sage: #6B9080;     --sage-d: #4F7363;   --sage-bg: rgba(107,144,128,.10);
+  --terra: #C5705D;    --terra-d: #A85843;  --terra-bg: rgba(197,112,93,.10);
+  --must: #C19A4B;     --must-d: #9F7E33;   --must-bg: rgba(193,154,75,.12);
+  --dusty: #6B8AAB;    --dusty-d: #4F6E8F;  --dusty-bg: rgba(107,138,171,.10);
+  --teal: #5C8B95;     --teal-d: #3F6D77;   --teal-bg: rgba(92,139,149,.10);
+  --plum: #957DAD;     --plum-d: #735C8A;   --plum-bg: rgba(149,125,173,.10);
+  --G: var(--sage);  --Gd: var(--sage-d);   --Gbg: var(--sage-bg);
+  --R: var(--terra); --Rd: var(--terra-d);  --Rbg: var(--terra-bg);
+  --A: var(--must);  --Ad: var(--must-d);   --Abg: var(--must-bg);
+  --B: var(--dusty); --Bd: var(--dusty-d);  --Bbg: var(--dusty-bg);
+  --T: var(--teal);  --Td: var(--teal-d);   --Tbg: var(--teal-bg);
+  --P: var(--plum);  --Pd: var(--plum-d);   --Pbg: var(--plum-bg);
+  --gold: var(--must); --gold2: var(--must-d); --gold-bg: var(--must-bg);
+  --r: 10px; --rs: 6px; --rl: 14px;
+  --tr: cubic-bezier(.4,0,.2,1);
+}
+:root, [data-theme="light"] {
+  --bg:#F7F4EE; --bg2:#FFFFFF; --bg3:#F1ECE2; --bg4:#E7E0D2;
+  --bdr:#E5DFD2; --bdr2:#D6CDB9;
+  --txt:#2A2723; --txt2:#6B6357; --txt3:#9A9080;
+  --shadow-sm: 0 1px 2px rgba(60,50,30,.04);
+  --shadow:    0 4px 16px rgba(60,50,30,.06);
+  --shadow-lg: 0 16px 48px rgba(60,50,30,.10);
+}
+[data-theme="dark"] {
+  --bg:#16161A; --bg2:#1E1E24; --bg3:#26262E; --bg4:#303039;
+  --bdr:#2C2C36; --bdr2:#3A3A46;
+  --txt:#ECE6DB; --txt2:#A39B8C; --txt3:#6F6A60;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+  --shadow:    0 4px 16px rgba(0,0,0,.35);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,.5);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--txt);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 19px; line-height: 1.55; min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.005em;
+  transition: background .25s var(--tr), color .25s var(--tr);
+}
+.serif, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.shell { max-width: 1480px; margin: 0 auto; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 28px; background: var(--bg);
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid var(--bdr);
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-logo {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--bg2); border: 1px solid var(--bdr);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  transition: border-color .15s var(--tr), box-shadow .15s var(--tr);
+}
+.brand-logo:hover { border-color: var(--bdr2); box-shadow: var(--shadow-sm); }
+.brand-logo img { width: 34px; height: 34px; object-fit: contain; }
+.brand-name { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: var(--txt); }
+.brand-sub { font-size: 17px; color: var(--txt2); margin-top: 2px; font-weight: 500; }
+.topbar-r { display: flex; align-items: center; gap: 10px; }
+
+.snap, .ts {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg2); border: 1px solid var(--bdr); color: var(--txt2);
+  font-size: 16px; font-weight: 500; padding: 6px 12px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all .15s var(--tr);
+}
+button.snap { font-family: 'JetBrains Mono', monospace; cursor: pointer; }
+.snap { color: var(--sage); border-color: var(--sage); background: var(--sage-bg); cursor: pointer; }
+.snap::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(107,144,128,.6); }
+  70% { box-shadow: 0 0 0 8px rgba(107,144,128,0); }
+  100% { box-shadow: 0 0 0 0 rgba(107,144,128,0); }
+}
+.icon-btn {
+  width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bg2); border: 1px solid var(--bdr); color: var(--txt2);
+  border-radius: 10px; cursor: pointer; font-family: inherit;
+  transition: all .15s var(--tr);
+}
+.icon-btn:hover { color: var(--txt); border-color: var(--bdr2); transform: translateY(-1px); }
+.icon-btn svg { width: 16px; height: 16px; }
+.theme-toggle .sun { display: block; } .theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+.logout-btn {
+  background: var(--bg2); border: 1px solid var(--bdr); color: var(--txt2);
+  font-size: 17px; font-weight: 500; padding: 8px 14px; border-radius: 10px;
+  cursor: pointer; font-family: inherit; transition: all .15s var(--tr);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.logout-btn:hover { border-color: var(--terra); color: var(--terra); }
+
+.sbar {
+  padding: 10px 28px; font-size: 16.5px; font-weight: 500;
+  display: flex; align-items: flex-start; gap: 8px;
+  border-bottom: 1px solid var(--bdr);
+  font-family: 'JetBrains Mono', monospace;
+}
+.sbar.err { padding: 14px 28px; }
+.sbar.info { background: var(--dusty-bg); color: var(--dusty-d); border-bottom-color: var(--dusty); }
+.sbar.ok   { background: var(--sage-bg);  color: var(--sage-d);  border-bottom-color: var(--sage); }
+.sbar.warn { background: var(--must-bg);  color: var(--must-d);  border-bottom-color: var(--must); }
+.sbar.err  { background: var(--terra-bg); color: var(--terra-d); border-bottom-color: var(--terra); }
+[data-theme="dark"] .sbar.info { color: var(--dusty); }
+[data-theme="dark"] .sbar.ok   { color: var(--sage); }
+[data-theme="dark"] .sbar.warn { color: var(--must); }
+[data-theme="dark"] .sbar.err  { color: var(--terra); }
+
+.nav {
+  display: flex; align-items: center; gap: 4px;
+  padding: 14px 28px; overflow-x: auto;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bdr);
+}
+.nav-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; cursor: pointer;
+  font-size: 17.5px; font-weight: 600; color: var(--txt2);
+  border: 1px solid transparent; background: transparent; font-family: inherit;
+  border-radius: 999px; margin-bottom: 0;
+  transition: all .15s var(--tr); white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+.nav-btn:hover { color: var(--txt); background: var(--bg3); }
+.nav-btn.active {
+  color: var(--txt); background: var(--bg2);
+  border-color: var(--bdr2);
+  box-shadow: var(--shadow-sm);
+}
+.nav-btn .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.nav-btn[data-acc="must"]  .dot { background: var(--must); }
+.nav-btn[data-acc="sage"]  .dot { background: var(--sage); }
+.nav-btn[data-acc="dusty"] .dot { background: var(--dusty); }
+.nav-btn[data-acc="terra"] .dot { background: var(--terra); }
+.nav-btn[data-acc="plum"]  .dot { background: var(--plum); }
+.nav-btn[data-acc="teal"]  .dot { background: var(--teal); }
+.nav-icon { display: none; }
+
+.content { padding: 28px; padding-bottom: 80px; }
+.page { display: none; }
+.page.active { display: block; animation: up .35s var(--tr) both; }
+@keyframes up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.ph { margin-bottom: 22px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.ph-l { display: flex; flex-direction: column; gap: 4px; }
+.ph-eyebrow { font-size: 16px; color: var(--txt2); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+.ph-ttl { font-size: 38px; font-weight: 700; letter-spacing: -0.025em; color: var(--txt); line-height: 1.1; font-family: 'Manrope', sans-serif; }
+.ph-sub { font-size: 18.5px; color: var(--txt2); margin-top: 2px; font-weight: 500; }
+
+.kg { display: grid; gap: 14px; margin-bottom: 18px; }
+.k4 { grid-template-columns: repeat(4, 1fr); }
+.k3 { grid-template-columns: repeat(3, 1fr); }
+.kpi {
+  background: var(--bg2); border: 1px solid var(--bdr);
+  border-radius: var(--rl); padding: 18px 18px 16px;
+  transition: all .18s var(--tr);
+  position: relative; overflow: hidden;
+}
+.kpi:hover { border-color: var(--bdr2); transform: translateY(-2px); box-shadow: var(--shadow); }
+.kpi::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--bdr); opacity: 0;
+}
+.kpi.aG    { --acc: var(--sage); }
+.kpi.aB    { --acc: var(--dusty); }
+.kpi.aA    { --acc: var(--must); }
+.kpi.aR    { --acc: var(--terra); }
+.kpi.aP    { --acc: var(--plum); }
+.kpi.aT    { --acc: var(--teal); }
+.kpi.aGold { --acc: var(--must); }
+.kpi[class*="a"]::before { background: var(--acc); opacity: 1; }
+.kl {
+  font-size: 15.5px; color: var(--txt2); margin-bottom: 10px;
+  text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;
+  display: flex; align-items: center; gap: 6px;
+}
+.kl::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--acc, var(--txt3)); flex-shrink: 0; }
+.kpi.click { cursor: pointer; }
+.kpi.click::after {
+  content: '↗'; position: absolute; top: 14px; right: 14px;
+  font-size: 14px; color: var(--txt3); opacity: 0;
+  transition: opacity .15s var(--tr), transform .15s var(--tr);
+}
+.kpi.click:hover { transform: translateY(-2px); border-color: var(--acc, var(--bdr)); box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+.kpi.click:hover::after { opacity: 1; transform: translate(2px, -2px); }
+[data-theme="dark"] .kpi.click:hover { box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+.spark { position: absolute; right: 14px; bottom: 12px; width: 84px; height: 28px; opacity: .85; pointer-events: none; }
+.kpi.click .spark { right: 30px; }
+@media (max-width: 900px) { .spark { display: none; } }
+
+/* Site filter (removed) */
+
+/* Error state per card */
+.err-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 28px 24px; text-align: center; color: var(--txt3); gap: 10px;
+}
+.err-card .err-ic { width: 32px; height: 32px; color: var(--terra); opacity: .7; }
+.err-card .err-msg { font-size: 14px; font-weight: 600; color: var(--txt2); }
+.err-card .err-sub { font-size: 12.5px; color: var(--txt3); max-width: 280px; }
+.err-card .err-retry {
+  margin-top: 4px; font-family: inherit; font-size: 13px; font-weight: 600;
+  padding: 6px 14px; border-radius: 8px; cursor: pointer;
+  background: var(--bg3); color: var(--txt); border: 1px solid var(--bdr);
+}
+.err-card .err-retry:hover { background: var(--bg2); border-color: var(--acc, var(--txt3)); }
+
+/* Aging waterfall */
+.wfall { padding: 16px 18px 18px; }
+.wfall-bar {
+  display: flex; height: 22px; border-radius: 6px; overflow: hidden;
+  background: var(--bg3); margin-bottom: 14px;
+}
+.wfall-seg {
+  position: relative; min-width: 2px; transition: filter .15s var(--tr);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95);
+  font-family: 'JetBrains Mono', monospace; letter-spacing: -.02em;
+}
+.wfall-seg:hover { filter: brightness(1.1); }
+.wfall-seg + .wfall-seg { box-shadow: -1px 0 0 rgba(0,0,0,.08); }
+.wfall-legend { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.wfall-row { display: grid; grid-template-columns: 12px minmax(120px,1fr) auto auto; gap: 12px; align-items: center; padding: 7px 4px; border-radius: 6px; transition: background .12s var(--tr); }
+.wfall-row:hover { background: var(--bg3); }
+.wfall-dot { width: 10px; height: 10px; border-radius: 3px; }
+.wfall-lbl { font-size: 14.5px; font-weight: 500; color: var(--txt); }
+.wfall-pct { font-size: 12px; color: var(--txt3); font-family: 'JetBrains Mono', monospace; min-width: 38px; text-align: right; }
+.wfall-num { font-size: 14.5px; font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--txt); letter-spacing: -.03em; min-width: 110px; text-align: right; }
+.wfall-cnt { font-size: 11.5px; color: var(--txt3); margin-left: 8px; font-weight: 500; }
+.kv { font-size: 34px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; color: var(--txt); font-family: 'Manrope', sans-serif; }
+.kv.mono { font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: -0.04em; font-size: 26px; }
+.ks { font-size: 16.5px; color: var(--txt3); margin-top: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+.cG    { color: var(--sage)  !important; }
+.cB    { color: var(--dusty) !important; }
+.cA    { color: var(--must)  !important; }
+.cR    { color: var(--terra) !important; }
+.cP    { color: var(--plum)  !important; }
+.cT    { color: var(--teal)  !important; }
+.cGold { color: var(--must)  !important; }
+
+.card {
+  background: var(--bg2); border: 1px solid var(--bdr);
+  border-radius: var(--rl); overflow: hidden; margin-bottom: 16px;
+  transition: border-color .18s var(--tr);
+}
+.card:hover { border-color: var(--bdr2); }
+.ch {
+  padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--bdr); gap: 12px; min-height: 52px;
+}
+.ct { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--txt); font-family: 'Manrope', sans-serif; }
+.ct-sub { font-size: 17px; color: var(--txt3); margin-left: 8px; font-weight: 500; }
+.badge { font-size: 15.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.02em; }
+.bG    { background: var(--sage-bg);  color: var(--sage-d); }
+.bR    { background: var(--terra-bg); color: var(--terra-d); }
+.bA    { background: var(--must-bg);  color: var(--must-d); }
+.bGold { background: var(--must-bg);  color: var(--must-d); }
+[data-theme="dark"] .bG { color: var(--sage); }
+[data-theme="dark"] .bR { color: var(--terra); }
+[data-theme="dark"] .bA, [data-theme="dark"] .bGold { color: var(--must); }
+
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.g1 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.bls { padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
+.br { display: flex; align-items: center; gap: 12px; }
+.blab { font-size: 17px; color: var(--txt2); width: 140px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+.btrack { flex: 1; height: 8px; background: var(--bg3); border-radius: 999px; overflow: hidden; }
+.bfill { height: 100%; border-radius: 999px; transition: width 1.2s var(--tr); }
+.bnum { font-size: 17.5px; font-weight: 600; min-width: 100px; text-align: right; flex-shrink: 0; font-family: 'JetBrains Mono', monospace; letter-spacing: -0.03em; }
+
+.tw { overflow-x: auto; }
+.tw.cf-compact { overflow: visible; }
+.tw.cf-compact table { font-size: 13.5px; }
+.tw.cf-compact th { padding: 7px 8px; font-size: 10.5px; letter-spacing: 0.05em; }
+.tw.cf-compact th:first-child { padding-left: 14px; }
+.tw.cf-compact td { padding: 6px 8px; white-space: normal; word-break: break-word; line-height: 1.25; }
+.tw.cf-compact td:first-child { padding-left: 14px; }
+.tw.cf-compact td.r { font-size: 12.5px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+table { width: 100%; border-collapse: collapse; font-size: 18px; }
+th {
+  padding: 12px 14px; text-align: left; color: var(--txt3); font-weight: 600; font-size: 15px;
+  text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--bdr);
+  background: var(--bg); white-space: nowrap; position: sticky; top: 0;
+}
+th.r { text-align: right; }
+th.c { text-align: center; }
+td { padding: 11px 14px; border-bottom: 1px solid var(--bdr); white-space: nowrap; color: var(--txt); }
+td.r { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 17.5px; letter-spacing: -0.03em; font-weight: 500; }
+td.c { text-align: center; }
+td.muted { color: var(--txt3); }
+tr:last-child td { border-bottom: none; }
+tbody tr { transition: background .12s var(--tr); }
+tbody tr:hover td { background: var(--bg3); }
+
+.pill { display: inline-block; font-size: 15.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; letter-spacing: 0.01em; }
+.pG { background: var(--sage-bg);  color: var(--sage-d); }
+.pR { background: var(--terra-bg); color: var(--terra-d); }
+.pA { background: var(--must-bg);  color: var(--must-d); }
+.pM { background: var(--bg3);      color: var(--txt2); }
+[data-theme="dark"] .pG { color: var(--sage); }
+[data-theme="dark"] .pR { color: var(--terra); }
+[data-theme="dark"] .pA { color: var(--must); }
+
+.alert {
+  display: flex; gap: 12px; padding: 14px 16px; border-radius: var(--r);
+  margin-bottom: 10px; border: 1px solid; align-items: flex-start;
+}
+.alert.danger { background: var(--terra-bg); border-color: var(--terra); }
+.alert.warn   { background: var(--must-bg);  border-color: var(--must); }
+.alert.info   { background: var(--dusty-bg); border-color: var(--dusty); }
+.al-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+.al-body { flex: 1; }
+.al-ttl { font-size: 18.5px; font-weight: 700; margin-bottom: 3px; letter-spacing: -0.01em; }
+.al-desc { font-size: 17.5px; color: var(--txt2); line-height: 1.5; font-weight: 500; }
+.alert.danger .al-ttl, .alert.danger .al-icon { color: var(--terra-d); }
+.alert.warn .al-ttl,   .alert.warn .al-icon   { color: var(--must-d); }
+.alert.info .al-ttl,   .alert.info .al-icon   { color: var(--dusty-d); }
+[data-theme="dark"] .alert.danger .al-ttl, [data-theme="dark"] .alert.danger .al-icon { color: var(--terra); }
+[data-theme="dark"] .alert.warn .al-ttl,   [data-theme="dark"] .alert.warn .al-icon   { color: var(--must); }
+[data-theme="dark"] .alert.info .al-ttl,   [data-theme="dark"] .alert.info .al-icon   { color: var(--dusty); }
+
+.chart-wrap { padding: 16px 18px; position: relative; height: 300px; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 16px; padding: 12px 18px 0; font-size: 17px; color: var(--txt2); font-weight: 500; }
+.chart-legend span { display: flex; align-items: center; gap: 6px; }
+.chart-legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+.bank-row {
+  display: grid; grid-template-columns: 44px 1fr auto auto; gap: 16px; align-items: center;
+  padding: 16px 18px; border-bottom: 1px solid var(--bdr);
+  transition: background .12s var(--tr);
+}
+.bank-row:hover { background: var(--bg3); }
+.bank-row:last-child { border-bottom: none; }
+.bank-icon { width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; color: #FFF; letter-spacing: -0.02em; }
+.bank-row:nth-child(6n+1) .bank-icon { background: var(--must); }
+.bank-row:nth-child(6n+2) .bank-icon { background: var(--dusty); }
+.bank-row:nth-child(6n+3) .bank-icon { background: var(--sage); }
+.bank-row:nth-child(6n+4) .bank-icon { background: var(--teal); }
+.bank-row:nth-child(6n+5) .bank-icon { background: var(--plum); }
+.bank-row:nth-child(6n+6) .bank-icon { background: var(--terra); }
+.bank-info { display: flex; flex-direction: column; }
+.bank-name { font-size: 20.5px; font-weight: 700; color: var(--txt); letter-spacing: -0.01em; }
+.bank-sub { font-size: 17px; color: var(--txt3); margin-top: 3px; font-weight: 500; }
+.bank-bal { font-family: 'JetBrains Mono', monospace; font-size: 21.5px; font-weight: 600; color: var(--txt); letter-spacing: -0.04em; }
+.bank-cur { font-size: 15px; color: var(--txt3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; padding: 3px 8px; background: var(--bg3); border-radius: 6px; }
+
+.empty { padding: 40px 16px; text-align: center; color: var(--txt3); font-size: 18px; font-weight: 500; }
+.scroll-tbl { max-height: 480px; overflow-y: auto; }
+.scroll-tbl::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll-tbl::-webkit-scrollbar-track { background: transparent; }
+.scroll-tbl::-webkit-scrollbar-thumb { background: var(--bdr2); border-radius: 4px; }
+
+@media (max-width: 1100px) {
+  .k4 { grid-template-columns: repeat(2, 1fr); }
+  .k3 { grid-template-columns: 1fr; }
+  .g2, .g3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 800px) {
+  .nav-btn { padding: 8px 12px; font-size: 16.5px; }
+  .content { padding: 18px; }
+  .topbar { padding: 14px 18px; }
+  .ph-ttl { font-size: 30px; }
+}
+
+#login-overlay {
+  position: fixed; inset: 0; background: var(--bg);
+  z-index: 9999;
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, var(--must-bg), transparent 50%),
+    radial-gradient(ellipse at 80% 90%, var(--sage-bg), transparent 50%);
+}
+.login-box {
+  width: 100%; max-width: 400px;
+  background: var(--bg2); border: 1px solid var(--bdr);
+  border-radius: 18px; padding: 40px 36px;
+  box-shadow: var(--shadow-lg);
+}
+.login-logo {
+  width: 72px; height: 72px; margin: 0 auto 22px;
+  border-radius: 18px; background: var(--bg);
+  border: 1px solid var(--bdr);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow);
+}
+.login-logo img { width: 56px; height: 56px; object-fit: contain; }
+.login-title {
+  font-size: 30px; font-weight: 700; letter-spacing: -0.025em;
+  text-align: center; color: var(--txt); margin-bottom: 6px; font-family: 'Manrope', sans-serif;
+}
+.login-sub { font-size: 18px; color: var(--txt2); text-align: center; margin-bottom: 28px; line-height: 1.5; font-weight: 500; }
+.login-form { display: flex; flex-direction: column; gap: 12px; }
+.login-input {
+  width: 100%; padding: 14px 16px;
+  background: var(--bg); border: 1px solid var(--bdr2); border-radius: 10px;
+  color: var(--txt); font-size: 19px; font-family: inherit; font-weight: 500;
+  text-align: center;
+  transition: all .15s var(--tr); outline: none;
+}
+.login-input:focus { border-color: var(--must); box-shadow: 0 0 0 3px var(--must-bg); }
+.login-btn {
+  padding: 14px; background: var(--must); border: none; border-radius: 10px;
+  color: #FFF; font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+  font-family: inherit; cursor: pointer; transition: all .15s var(--tr);
+}
+.login-btn:hover { background: var(--must-d); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(193,154,75,.3); }
+.login-btn:active { transform: translateY(0); }
+.login-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.login-error { font-size: 16.5px; color: var(--terra); text-align: center; min-height: 18px; padding-top: 4px; font-weight: 500; }
+.login-footer { font-size: 16.5px; color: var(--txt3); text-align: center; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--bdr); line-height: 1.6; font-weight: 500; }
+.login-footer strong { color: var(--must); font-weight: 700; }
+
+.shell.locked > .topbar,
+.shell.locked > .nav,
+.shell.locked > #sbar,
+.shell.locked > .content { display: none; }
+</style>
+</head>
+<body>
+
+<!-- Login Overlay -->
+<div id="login-overlay">
+  <div class="login-box">
+    <div class="login-logo"><img class="tmms-logo-img" alt="TMMS"></div>
+    <div class="login-title">FAT Dashboard</div>
+    <div class="login-sub">PT Tambang Meranti Mulia Sejahtera<br>Finance · Accounting · Tax</div>
+    <form class="login-form" id="login-form" autocomplete="off">
+      <input type="password" class="login-input" id="login-password"
+             placeholder="Masukkan password" autofocus required>
+      <button type="submit" class="login-btn" id="login-submit">Masuk Dashboard</button>
+      <div class="login-error" id="login-error"></div>
+    </form>
+    <div class="login-footer">
+      Akses dibatasi untuk <strong>Tim FAT TMMS</strong><br>
+      Hubungi admin untuk mendapatkan password
+    </div>
+  </div>
+</div>
+
+<div class="shell locked">
+
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-logo"><img class="tmms-logo-img" alt="TMMS"></div>
+    <div>
+      <div class="brand-name" style="font-size: 34px">PT TMMS - FAT Dashboard</div>
+      <div class="brand-sub">Tambang Meranti Mulia Sejahtera - Finance, Accounting, Tax</div>
+    </div>
+  </div>
+  <div class="topbar-r">
+    <span class="ts" id="ts">Memuat...</span>
+    <button class="snap" id="refresh-btn" title="Refresh data" aria-label="Refresh data">↻ Refresh</button>
+    <button class="icon-btn theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme"><svg class="sun" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><svg class="moon" viewBox="0 0 16 16" fill="none"><path d="M13 9.5A5.5 5.5 0 1 1 6.5 3a4.5 4.5 0 0 0 6.5 6.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
+    <button class="logout-btn" id="logout-btn" title="Logout">🔒 Logout</button>
+    
+  </div>
+</div>
+
+<div id="sbar" class="sbar info"><span>Inisialisasi...</span></div>
+<div style="text-align:right;margin:-8px 8px 8px;font-size:12px;opacity:.6">
+  <a href="#" onclick="openDebugPanel();return false" style="color:var(--txt2);text-decoration:underline;cursor:pointer">🔧 Debug info</a>
+</div>
+
+<!-- Debug Panel Modal -->
+<div id="debug-panel" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:flex-start;justify-content:center;padding:32px;overflow-y:auto">
+  <div style="background:var(--bg);max-width:1100px;width:100%;border-radius:12px;border:1px solid var(--bdr);padding:24px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <h2 style="margin:0;font-family:'Inter',sans-serif;font-size:18px;color:var(--terra)">🔧 Debug Info — share ini ke Claude untuk troubleshoot</h2>
+      <button onclick="closeDebugPanel()" style="background:none;border:1px solid var(--bdr);color:var(--txt2);padding:6px 12px;cursor:pointer;border-radius:6px">✕ Close</button>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:14px">
+      <button onclick="copyDebugInfo()" style="background:var(--gold);color:var(--bg);border:none;padding:8px 14px;cursor:pointer;border-radius:6px;font-family:inherit;font-weight:600">📋 Copy ke Clipboard</button>
+      <span id="debug-copy-status" style="align-self:center;color:var(--G);font-size:12px"></span>
+    </div>
+    <pre id="debug-content" style="background:var(--bg2);padding:14px;border-radius:8px;overflow:auto;max-height:60vh;white-space:pre-wrap;word-break:break-word;color:var(--txt);border:1px solid var(--bdr)"></pre>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" data-acc="must" onclick="switchTab('overview',this)"><span class="dot"></span>
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M1 13L5 5L8 9L11 4L15 13H1Z"/>
+      <circle cx="11" cy="3.2" r="1" fill="currentColor" stroke="none"/>
+      <path d="M1 13H15"/>
+    </svg>
+    Overview
+  </button>
+  <button class="nav-btn" data-acc="sage" onclick="switchTab('cashflow',this)"><span class="dot"></span>
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M1 11h7l1-4h3l2 2v2H9"/>
+      <circle cx="4" cy="12.5" r="1.3"/>
+      <circle cx="12" cy="12.5" r="1.3"/>
+      <path d="M2.5 7h4.5v4"/>
+    </svg>
+    Cashflow
+  </button>
+  <button class="nav-btn" data-acc="dusty" onclick="switchTab('ar',this)"><span class="dot"></span>
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M3 6L13 6L12 11H4L3 6Z"/>
+      <circle cx="5.5" cy="13" r="1"/>
+      <circle cx="10.5" cy="13" r="1"/>
+      <path d="M8 1.5v3.5M6 3.5l2-2 2 2"/>
+    </svg>
+    Piutang (AR)
+  </button>
+  <button class="nav-btn" data-acc="terra" onclick="switchTab('ap',this)"><span class="dot"></span>
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M3 13L11 5"/>
+      <path d="M7 1.5C10.5 1.5 13.5 4.5 14.5 8"/>
+      <path d="M7 1.5L9.5 4M14.5 8L11.5 6"/>
+    </svg>
+    Hutang (AP)
+  </button>
+  <button class="nav-btn" data-acc="plum" onclick="switchTab('tax',this)"><span class="dot"></span>
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M8 4v9M4 13h8"/>
+      <path d="M2 8L4 4L6 8z" fill="currentColor" stroke="none" opacity=".5"/>
+      <path d="M10 8L12 4L14 8z" fill="currentColor" stroke="none" opacity=".5"/>
+      <path d="M2 8L6 8M10 8L14 8"/>
+      <path d="M4 4L8 3L12 4"/>
+    </svg>
+    Pajak
+  </button>
+  <button class="nav-btn" data-acc="teal" onclick="switchTab('bank',this)"><span class="dot"></span>
+    <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="2" y="3" width="12" height="11" rx="1"/>
+      <circle cx="8" cy="8.5" r="2.5"/>
+      <path d="M8 5.5v-1M8 12.5v1M5 8.5h-1M12 8.5h1"/>
+      <path d="M3 14v1.2M13 14v1.2"/>
+      <rect x="2" y="13" width="12" height="1" fill="currentColor"/>
+    </svg>
+    Bank
+  </button>
+</div>
+
+<div class="content">
+
+<div class="page active" id="page-overview">
+  <div class="ph">
+    <div class="ph-l"><span class="ph-eyebrow" style="color:var(--must)">Overview</span><div class="ph-ttl" style="font-size: 38px">Ringkasan eksekutif</div></div>
+    <div class="ph-sub" id="overview-period"></div>
+  </div>
+  <div class="kg k4" id="kpi-overview"></div>
+  <div class="g2">
+    <div class="card">
+      <div class="ch"><span class="ct">Cashout per site</span><span class="badge bGold" id="overview-period-bdg">-</span></div>
+      <div id="overview-sites" class="bls"></div>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="ct">Critical alerts</span></div>
+      <div id="overview-alerts" style="padding:14px 16px"></div>
+    </div>
+  </div>
+  <div class="g1">
+    <div class="card">
+      <div class="ch"><span class="ct">Trend Cashin vs Cashout per Site</span><span class="ct-sub">6 bulan terakhir</span></div>
+      <div class="chart-legend" id="legend-ov-cashflow"></div>
+      <div class="chart-wrap"><canvas id="chart-ov-cashflow"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-cashflow">
+  <div class="ph">
+    <div class="ph-l"><span class="ph-eyebrow" style="color:var(--sage)">Cashflow</span><div class="ph-ttl">Cashflow operating</div></div>
+    <div class="ph-sub" id="cf-period"></div>
+  </div>
+  <div class="kg k3" id="kpi-cashflow"></div>
+  <div class="g3">
+    <div class="card" id="cf-site-BKM"></div>
+    <div class="card" id="cf-site-AKP"></div>
+    <div class="card" id="cf-site-RCP"></div>
+    <div class="card" id="cf-site-CASH"></div>
+  </div>
+  <div class="g1">
+    <div class="card">
+      <div class="ch"><span class="ct">Trend Cashin vs Cashout per Site</span><span class="ct-sub">6 bulan terakhir</span></div>
+      <div class="chart-legend" id="legend-cf-cashflow"></div>
+      <div class="chart-wrap"><canvas id="chart-cf-cashflow"></canvas></div>
+    </div>
+  </div>
+  <div class="g1">
+    <div class="card">
+      <div class="ch"><span class="ct">Trend Realisasi vs Budget</span><span class="ct-sub">6 bulan terakhir</span></div>
+      <div class="chart-legend" id="legend-cf-trend"></div>
+      <div class="chart-wrap"><canvas id="chart-cf-trend"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-ar">
+  <div class="ph">
+    <div class="ph-l"><span class="ph-eyebrow" style="color:var(--dusty)">Receivable</span><div class="ph-ttl">Piutang usaha</div></div>
+    <div class="ph-sub">Outstanding invoice yang belum dibayar customer</div>
+  </div>
+  <div class="kg k4" id="kpi-ar"></div>
+  <div class="g2">
+    <div class="card">
+      <div class="ch"><span class="ct">AR aging breakdown</span><span class="badge bGold">Rp</span></div>
+      <div id="ar-aging" class="bls"></div>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="ct">Top 10 customer outstanding</span></div>
+      <div class="tw scroll-tbl"><table id="tbl-ar-top"></table></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span class="ct">Detail invoice belum dibayar</span><span class="ct-sub" id="ar-list-info">-</span></div>
+    <div class="tw scroll-tbl"><table id="tbl-ar-list"></table></div>
+  </div>
+</div>
+
+<div class="page" id="page-ap">
+  <div class="ph">
+    <div class="ph-l"><span class="ph-eyebrow" style="color:var(--terra)">Payable</span><div class="ph-ttl">Hutang usaha</div></div>
+    <div class="ph-sub">Invoice masuk yang belum dibayar TMMS</div>
+  </div>
+  <div class="kg k4" id="kpi-ap"></div>
+  <div class="g2">
+    <div class="card">
+      <div class="ch"><span class="ct">AP status due date</span><span class="badge bGold">Rp</span></div>
+      <div id="ap-status" class="bls"></div>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="ct">Top 10 vendor outstanding</span></div>
+      <div class="tw scroll-tbl"><table id="tbl-ap-top"></table></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><span class="ct">Distribusi AP per site</span></div>
+    <div id="ap-sites" class="bls"></div>
+  </div>
+  <div class="card">
+    <div class="ch"><span class="ct">Invoice lewat jatuh tempo (urut by jumlah hari)</span><span class="ct-sub" id="ap-overdue-info">-</span></div>
+    <div class="tw scroll-tbl"><table id="tbl-ap-overdue"></table></div>
+  </div>
+</div>
+
+<div class="page" id="page-tax">
+  <div class="ph">
+    <div class="ph-l"><span class="ph-eyebrow" style="color:var(--plum)">Tax</span><div class="ph-ttl">Posisi pajak</div></div>
+    <div class="ph-sub">PPN keluaran vs masukan, withholding PPh, status bukti potong</div>
+  </div>
+  <div class="kg k4" id="kpi-tax"></div>
+  <div class="card">
+    <div class="ch"><span class="ct">PPN keluaran vs masukan</span><span class="ct-sub">12 bulan terakhir</span></div>
+    <div class="chart-legend" id="legend-ppn"></div>
+    <div class="chart-wrap"><canvas id="chart-ppn"></canvas></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <div class="ch"><span class="ct">PPN posisi per bulan</span></div>
+      <div class="tw scroll-tbl"><table id="tbl-ppn"></table></div>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="ct">Tax compliance flags</span></div>
+      <div id="tax-flags" style="padding:14px 16px"></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-bank">
+  <div class="ph">
+    <div class="ph-l"><span class="ph-eyebrow" style="color:var(--teal)">Bank</span><div class="ph-ttl">Posisi rekening bank</div></div>
+    <div class="ph-sub">Saldo per rekening - 6 bank - IDR & USD</div>
+  </div>
+  <div class="kg k3" id="kpi-bank"></div>
+  <div class="card">
+    <div class="ch"><span class="ct">Trend saldo per bulan</span><span class="ct-sub">6 bulan - IDR (Rp jt)</span></div>
+    <div class="chart-legend" id="legend-bank-trend"></div>
+    <div class="chart-wrap"><canvas id="chart-bank-trend"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="ch"><span class="ct">Daftar rekening</span><span class="ct-sub" id="bank-info">-</span></div>
+    <div id="bank-list"></div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<script>
+// Production console wrapper (set window.DEBUG=true to enable verbose logs)
+const __origLog = console.log, __origWarn = console.warn;
+console.log = function(...a) { if (window.DEBUG) __origLog.apply(console, a); };
+console.warn = function(...a) { if (window.DEBUG) __origWarn.apply(console, a); };
+// Errors always shown
+// EMBEDDED DATA (snapshot)
+// ===== CONFIG: Spreadsheet IDs =====
+// ============================================================
+// CONFIG — EDIT 3 SHEET IDs DI BAWAH SETELAH UPLOAD KE GOOGLE SHEETS
+// ============================================================
+// Cara dapat Sheet ID:
+//   1. Buka Sheets di browser
+//   2. Lihat URL: docs.google.com/spreadsheets/d/[SHEET_ID_DI_SINI]/edit
+//   3. Copy ID yang panjang (~44 char), paste di bawah
+// ============================================================
+const SHEETS = {
+  invoice:  '1mpTpuCBo21oA9V-AXQRWPxXRRSf0FZURFzW_lKsJlsA',   // File: Monitoring Invoice
+  bank:     '1hXYf9L0lzBrHlZgX8ZcQEKQCmOHHSPe3ZqMFW8wsGBQ',   // File: Mutasi Bank
+  cashflow: '1BOUXfuMkuZPzK-4jTx5t7bMF9bCGWqEq38HIvLGCE3U',   // File: Daily Cashflow
+};
+
+// Sheet names (sesuai nama tab di Google Sheets - JANGAN UBAH)
+const SHEET_NAMES = {
+  invoice: 'Data Invoice',
+  bank:    'Mutasi',
+};
+
+// ============================================================
+// SITES CONFIG — single source of truth untuk operational sites
+// Tambah/edit di sini saja, semua tempat di dashboard otomatis ngikut
+// ============================================================
+const SITES_LIST = ['BKM', 'AKP', 'RCP', 'CASH'];
+const SITE_COLORS_CSS = { BKM: 'var(--terra)', AKP: 'var(--teal)', RCP: 'var(--must)', CASH: 'var(--sage)' };
+const SITE_COLORS_HEX = { BKM: '#b85c44', AKP: '#5b8a8a', RCP: '#c9a961', CASH: '#87a96b' };
+
+// Mapping rekening label → bank info untuk display
+const REK_MAP = [
+  { rekening: 'BCA - TMMS',              key: 'bca',          name: 'BCA',              short: 'BC', currency: 'IDR' },
+  { rekening: 'BNI - TMMS',              key: 'bni',          name: 'BNI',              short: 'BN', currency: 'IDR' },
+  { rekening: 'CIMB Niaga - TMMS RCP',   key: 'cimb',         name: 'CIMB Niaga (RCP)', short: 'CN', currency: 'IDR' },
+  { rekening: 'Mandiri Giro - TMMS',     key: 'mandiri_giro', name: 'Mandiri Giro',     short: 'MG', currency: 'IDR' },
+  { rekening: 'Mandiri SUS - TMMS',      key: 'mandiri_sus',  name: 'Mandiri SUS',      short: 'MS', currency: 'IDR' },
+  { rekening: 'Mandiri USD - TMMS',      key: 'mandiri_usd',  name: 'Mandiri USD',      short: 'MU', currency: 'USD' },
+];
+
+const BANK_INFO = REK_MAP.map(r => ({ key: r.key, name: r.name, short: r.short, currency: r.currency }));
+
+// H-1 CUTOFF: hanya tampilkan data sampai akhir hari kemarin (23:59:59)
+function getH1Cutoff() {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  d.setHours(23, 59, 59, 999);
+  return d;
+}
+
+let DATA = { banks: [], cashflow: [], ar: [], ap: [], ppn_keluaran: {}, ppn_masukan: {} };
+
+// ===== FETCH HELPERS =====
+// JSONP primary — gviz native method, bypasses CORS entirely
+// (browser extensions, corporate firewalls, Workspace policies often block fetch() to docs.google.com
+// but allow <script src="...docs.google.com/...">. JSONP is how Google originally intended gviz to be used.)
+function fetchSheetJSONP(spreadsheetId, sheetName, range) {
+  return new Promise((resolve, reject) => {
+    const cbName = '_gvizCb_' + Math.random().toString(36).slice(2, 10);
+    const rangeParam = range ? `&range=${encodeURIComponent(range)}` : '';
+    const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=responseHandler:${cbName};out:json&sheet=${encodeURIComponent(sheetName)}${rangeParam}&_t=${Date.now()}`;
+    const t0 = Date.now();
+    
+    const script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+    
+    const cleanup = () => {
+      try { delete window[cbName]; } catch(e) { window[cbName] = undefined; }
+      if (script.parentNode) script.parentNode.removeChild(script);
+    };
+    
+    const timeoutId = setTimeout(() => {
+      cleanup();
+      const dur = Date.now() - t0;
+      console.warn(`[JSONP] ${sheetName} TIMEOUT after ${dur}ms`);
+      reject(new Error(`Timeout 60s — sheet terlalu besar atau tidak bisa dibuka`));
+    }, 60000);
+    
+    window[cbName] = (response) => {
+      clearTimeout(timeoutId);
+      const dur = Date.now() - t0;
+      cleanup();
+      if (!response || typeof response !== 'object') {
+        return reject(new Error('JSONP response invalid'));
+      }
+      if (response.status !== 'ok') {
+        const msg = response.errors?.[0]?.detailed_message || response.errors?.[0]?.message || 'GSheets error';
+        if (/invalid.*range|unable.*find/i.test(msg)) {
+          return reject(new Error(`Tab "${sheetName}" tidak ada — cek nama tab di sheet`));
+        }
+        return reject(new Error(msg));
+      }
+      const sizeApprox = JSON.stringify(response).length;
+      console.log(`[JSONP] ${sheetName}${range ? ` [${range}]` : ''} OK · ${dur}ms · ~${(sizeApprox/1024).toFixed(0)}KB`);
+      resolve(response.table);
+    };
+    
+    script.onerror = () => {
+      clearTimeout(timeoutId);
+      cleanup();
+      const dur = Date.now() - t0;
+      console.warn(`[JSONP] ${sheetName} script load failed after ${dur}ms`);
+      reject(new Error('Script load failed — cek Sheet ID & sharing (Anyone with link)'));
+    };
+    
+    document.head.appendChild(script);
+  });
+}
+
+async function fetchSheet(spreadsheetId, sheetName, range, attempt = 1) {
+  try {
+    return await fetchSheetJSONP(spreadsheetId, sheetName, range);
+  } catch (e) {
+    // Retry once on transient errors
+    if (attempt < 2 && /timeout|script load/i.test(e.message)) {
+      console.warn(`[fetchSheet] ${sheetName} retry ${attempt + 1} after: ${e.message}`);
+      await new Promise(r => setTimeout(r, 1500));
+      return fetchSheet(spreadsheetId, sheetName, range, attempt + 1);
+    }
+    throw e;
+  }
+}
+
+function cs(c) { if (!c || c.v == null) return ''; return String(c.v).trim(); }
+function cn(c) {
+  if (!c || c.v == null) return 0;
+  // Already a number → use directly
+  if (typeof c.v === 'number') return c.v;
+  let s = String(c.v).trim();
+  if (!s) return 0;
+  // Strip currency symbols & spaces
+  s = s.replace(/[Rp$€¥\s]/gi, '');
+  // Indonesian "1.234.567,89" — comma is decimal, dots are thousand sep
+  // English "1,234,567.89" — comma is thousand sep, dot is decimal
+  const lastDot = s.lastIndexOf('.');
+  const lastComma = s.lastIndexOf(',');
+  if (lastDot >= 0 && lastComma >= 0) {
+    if (lastComma > lastDot) {
+      // Indonesian: drop dots, replace last comma with dot
+      s = s.replace(/\./g, '').replace(',', '.');
+    } else {
+      // English: drop commas
+      s = s.replace(/,/g, '');
+    }
+  } else if (lastDot >= 0) {
+    const parts = s.split('.');
+    // 3+ parts (e.g. "1.234.567") → all dots are thousand sep
+    // 2 parts where last segment has exactly 3 digits and first ≤ 3 digits → likely thousand sep "1.234"
+    // Else → decimal point
+    if (parts.length >= 3 || (parts.length === 2 && parts[1].length === 3 && /^\d+$/.test(parts[0]) && parts[0].length <= 3)) {
+      s = s.replace(/\./g, '');
+    }
+  } else if (lastComma >= 0) {
+    const parts = s.split(',');
+    // "123,45" → decimal (Indonesian)
+    // "1,234,567" → thousand sep (English)
+    if (parts.length === 2 && parts[1].length <= 2) {
+      s = parts[0] + '.' + parts[1];
+    } else {
+      s = s.replace(/,/g, '');
+    }
+  }
+  // Strip remaining non-numeric (keep . and -)
+  s = s.replace(/[^0-9.\-]/g, '');
+  const n = parseFloat(s);
+  return isNaN(n) ? 0 : n;
+}
+// Indonesia/English month name → 0-indexed month
+const _MONTH_MAP = {
+  jan:0,feb:1,mar:2,apr:3,may:4,mei:4,jun:5,jul:6,aug:7,ags:7,agt:7,sep:8,sept:8,oct:9,okt:9,nov:10,dec:11,des:11,
+  januari:0,february:1,februari:1,march:2,maret:2,april:3,june:5,juni:5,july:6,juli:6,august:7,agustus:7,
+  september:8,october:9,oktober:9,november:10,december:11,desember:11
+};
+
+function _parseDateStr(s) {
+  if (!s) return null;
+  s = String(s).trim();
+  if (!s) return null;
+  // YYYY-MM-DD or YYYY/MM/DD (ISO)
+  let m = s.match(/^(\d{4})[\-\/.](\d{1,2})[\-\/.](\d{1,2})/);
+  if (m) return new Date(parseInt(m[1]), parseInt(m[2]) - 1, parseInt(m[3]));
+  // DD/MM/YYYY or DD-MM-YYYY or DD.MM.YYYY  (assume Indonesian/EU order)
+  m = s.match(/^(\d{1,2})[\-\/.](\d{1,2})[\-\/.](\d{2,4})/);
+  if (m) {
+    let y = parseInt(m[3]); if (y < 100) y += 2000;
+    return new Date(y, parseInt(m[2]) - 1, parseInt(m[1]));
+  }
+  // DD MMM YYYY (e.g. "1 Apr 2026", "01 April 2026", "1-Apr-2026", "1/Apr/2026")
+  m = s.match(/^(\d{1,2})[\s\-\/]+([a-zA-Z]+)[\s\-\/]+(\d{2,4})/);
+  if (m) {
+    const monKey = m[2].toLowerCase();
+    const month = _MONTH_MAP[monKey] ?? _MONTH_MAP[monKey.slice(0, 3)];
+    if (month != null) {
+      let y = parseInt(m[3]); if (y < 100) y += 2000;
+      return new Date(y, month, parseInt(m[1]));
+    }
+  }
+  // Native fallback (handles ISO 8601 with time, etc)
+  const d = new Date(s);
+  return !isNaN(d.getTime()) ? d : null;
+}
+
+function cd(c) {
+  if (!c) return null;
+  // Check c.v first
+  if (c.v != null) {
+    // gviz Date(YYYY,M,D) string (M is 0-indexed)
+    if (typeof c.v === 'string' && c.v.startsWith('Date(')) {
+      const m = c.v.match(/Date\((\d+),(\d+),(\d+)/);
+      if (m) return new Date(parseInt(m[1]), parseInt(m[2]), parseInt(m[3]));
+    }
+    // Date object directly
+    if (c.v instanceof Date) return c.v;
+    // Excel/Sheets serial number (numeric)
+    if (typeof c.v === 'number' && c.v > 25000 && c.v < 80000) {
+      return new Date((c.v - 25569) * 86400000);
+    }
+    // String date
+    if (typeof c.v === 'string') {
+      const d = _parseDateStr(c.v);
+      if (d) return d;
+    }
+  }
+  // Fallback to formatted display string c.f
+  if (c.f) {
+    const d = _parseDateStr(c.f);
+    if (d) return d;
+  }
+  return null;
+}
+
+// ===== BANK PARSING (FLAT FORMAT, HEADER LOOKUP) =====
+// Single sheet "Mutasi". Uses header row scan to find columns dynamically
+// (handles xlsx→Sheets conversion which can insert empty columns).
+function findHeaderMap(table, anchorKeyword) {
+  const norm = s => (typeof s === 'string' ? s : (s == null ? '' : String(s))).toUpperCase().replace(/\s+/g, ' ').trim();
+  const anchor = norm(anchorKeyword);
+  const rows = table.rows || [];
+  
+  // Heuristic: does this string LOOK like a header (not data)?
+  const looksLikeHeader = (s) => {
+    if (!s) return false;
+    if (s.length > 80) return false;                          // Too long = description
+    if (/^\d+([.,]\d+)?$/.test(s)) return false;              // Pure number
+    if (/^(AR|AP)[\/\-]/i.test(s)) return false;              // Register code
+    if (/^\d{1,2}[\/\-]\d{1,2}[\/\-]\d/.test(s)) return false;// Date pattern
+    if (/^[A-Z]{2,4}\d{3,}/i.test(s)) return false;           // Code like INV001
+    if (/^Date\s*\(/i.test(s)) return false;                  // gviz Date(yyyy,m,d) value
+    return /[a-zA-Z]/.test(s);                                // Has at least one letter
+  };
+  
+  // Cell-level helper: only accept STRING cells (gviz Date/Number cells have c.v as number or "Date(...)")
+  const getCellLabel = (cell) => {
+    if (!cell || cell.v == null) return null;
+    if (typeof cell.v === 'number') return null;              // Numeric data cell
+    if (typeof cell.v === 'boolean') return null;
+    if (typeof cell.v === 'string' && cell.v.startsWith('Date(')) return null;  // gviz date data cell
+    const s = String(cell.v).trim();
+    return looksLikeHeader(s) ? s : null;
+  };
+  
+  // Step 1: locate anchor row
+  let anchorRow = -1;
+  for (let i = 0; i < Math.min(15, rows.length); i++) {
+    if (!rows[i] || !rows[i].c) continue;
+    for (let j = 0; j < rows[i].c.length; j++) {
+      const v = norm(cs(rows[i].c[j]));
+      if (v.includes(anchor)) { anchorRow = i; break; }
+    }
+    if (anchorRow >= 0) break;
+  }
+  
+  // Step 2: if found, harvest labels from anchor row + neighbor rows (multi-row headers / merged cells)
+  if (anchorRow >= 0) {
+    // Priority order: anchor row first (most reliable), then nearby
+    const rowsToCheck = [anchorRow];
+    for (let d = 1; d <= 3; d++) {
+      if (anchorRow - d >= 0) rowsToCheck.push(anchorRow - d);
+      if (anchorRow + d < rows.length) rowsToCheck.push(anchorRow + d);
+    }
+    
+    // Determine max columns to scan
+    const maxCol = Math.max(...rowsToCheck.map(idx => rows[idx]?.c?.length || 0));
+    
+    // For each column k, find FIRST non-empty header-looking label from priority-ordered rows
+    const colLabels = {};  // {col_idx: label}
+    for (let k = 0; k < maxCol; k++) {
+      for (const ri of rowsToCheck) {
+        const r = rows[ri];
+        if (!r?.c?.[k]) continue;
+        const l = getCellLabel(r.c[k]);
+        if (l) {
+          colLabels[k] = norm(l);
+          break;
+        }
+      }
+    }
+    
+    // Convert to {label: col_idx} map (current logic shape)
+    const map = {};
+    const mappedCols = new Set();
+    for (const [k, label] of Object.entries(colLabels)) {
+      const colIdx = parseInt(k);
+      if (!(label in map)) {
+        map[label] = colIdx;
+        mappedCols.add(colIdx);
+      }
+    }
+    
+    // ENRICH: harvest from gviz.cols[].label for any column not yet mapped
+    // (gviz sometimes preserves labels even when cell scan misses them due to merged cells)
+    const tableCols = table.cols || [];
+    for (let j = 0; j < tableCols.length; j++) {
+      if (mappedCols.has(j)) continue;
+      const v = norm(tableCols[j].label || '');
+      if (v && looksLikeHeader(v)) {
+        if (!(v in map)) {
+          map[v] = j;
+          mappedCols.add(j);
+        }
+      }
+    }
+    
+    console.log(`[findHeaderMap '${anchorKeyword}'] Found anchor at row ${anchorRow}. Harvested ${Object.keys(map).length} headers from rows ${rowsToCheck.join(',')} + gviz.cols:`);
+    console.log(' →', Object.entries(map).sort((a,b) => a[1]-b[1]).map(([l,i]) => `${i}:${l}`).join(' | '));
+    return { headerRowIdx: anchorRow, map };
+  }
+  
+  // Method B: Fallback to gviz cols.label
+  const cols = table.cols || [];
+  if (cols.length > 0) {
+    const map = {};
+    let foundAnchor = false;
+    for (let j = 0; j < cols.length; j++) {
+      const v = norm(cols[j].label || '');
+      if (v) { map[v] = j; if (v.includes(anchor)) foundAnchor = true; }
+    }
+    if (foundAnchor) {
+      console.log(`[findHeaderMap '${anchorKeyword}'] Found in gviz.cols. ${Object.keys(map).length} headers:`, Object.keys(map));
+      return { headerRowIdx: -1, map };
+    }
+  }
+  
+  // Diagnostic on failure
+  console.warn(`[findHeaderMap '${anchorKeyword}'] NOT FOUND.`);
+  console.warn('  cols labels:', cols.map(c => c.label));
+  console.warn('  first 5 rows preview:', rows.slice(0, 5).map(r => r && r.c ? r.c.slice(0, 8).map(c => c && c.v != null ? String(c.v).slice(0, 30) : null) : null));
+  return null;
+}
+
+function findCol(map, ...keywords) {
+  const norm = s => s.toUpperCase().replace(/\s+/g, ' ').trim();
+  // Exact match
+  for (const kw of keywords) {
+    const k = norm(kw);
+    if (map[k] !== undefined) return map[k];
+  }
+  // Label contains keyword
+  for (const kw of keywords) {
+    const k = norm(kw);
+    for (const [label, idx] of Object.entries(map)) {
+      if (label.includes(k)) return idx;
+    }
+  }
+  // Keyword contains label (label is shorter, must be at least 3 chars to avoid noise)
+  for (const kw of keywords) {
+    const k = norm(kw);
+    for (const [label, idx] of Object.entries(map)) {
+      if (label.length >= 3 && k.includes(label)) return idx;
+    }
+  }
+  return -1;
+}
+
+// Find ALL distinct column indices matching ANY of the patterns.
+// Used for multi-col fallback when consolidated sheets have multiple columns
+// with same logical meaning (e.g., 'Tgl Inv' for AR + 'Tgl Invoice' for AP).
+function findAllCols(map, patterns) {
+  const norm = s => s.toUpperCase().replace(/\s+/g, ' ').trim();
+  const cols = new Set();
+  for (const pat of patterns) {
+    const k = norm(pat);
+    if (k.length < 3) continue;
+    if (map[k] !== undefined) cols.add(map[k]);
+    for (const [label, idx] of Object.entries(map)) {
+      if (label.includes(k)) cols.add(idx);
+    }
+  }
+  return Array.from(cols).sort((a, b) => a - b);
+}
+
+// Type-infer columns that have data but no header (multi-row merged headers, etc).
+// Scans first ~50 data rows, classifies each unmapped col by dominant cell type.
+// Returns { dates: [colIdx...], nums: [colIdx...], textCols: [colIdx...] }
+// nums are sorted by avg magnitude DESC so largest amounts come first (TOTAL > NOMINAL).
+function inferColTypes(table, hm) {
+  const mappedCols = new Set(Object.values(hm.map));
+  const rows = table.rows || [];
+  const startRow = (hm.headerRowIdx >= 0 ? hm.headerRowIdx : -1) + 1;
+  const SAMPLE_SIZE = 50;
+  
+  const stats = {};  // col_idx -> {date, num, text, total, sum_abs}
+  for (let i = startRow; i < Math.min(startRow + SAMPLE_SIZE, rows.length); i++) {
+    const r = rows[i];
+    if (!r?.c) continue;
+    for (let k = 0; k < r.c.length; k++) {
+      if (mappedCols.has(k)) continue;
+      const cell = r.c[k];
+      if (!cell || cell.v == null || cell.v === '') continue;
+      stats[k] = stats[k] || { date: 0, num: 0, text: 0, total: 0, sum_abs: 0 };
+      stats[k].total++;
+      if (typeof cell.v === 'string' && cell.v.startsWith('Date(')) {
+        stats[k].date++;
+      } else if (typeof cell.v === 'number') {
+        stats[k].num++;  // count ALL numeric cells, including 0 (PPh cols often sparse)
+        if (Math.abs(cell.v) > 0) {
+          stats[k].sum_abs += Math.abs(cell.v);
+        }
+      } else if (cell.v instanceof Date) {
+        stats[k].date++;
+      } else if (typeof cell.v === 'string') {
+        stats[k].text++;
+      }
+    }
+  }
+  
+  const dates = [], nums = [], textCols = [];
+  for (const [k, s] of Object.entries(stats)) {
+    if (s.total < 3) continue;  // need at least 3 non-empty samples
+    const colIdx = parseInt(k);
+    if (s.date > s.total * 0.5) dates.push({ col: colIdx });
+    else if (s.num > s.total * 0.5) nums.push({ col: colIdx, avg: s.sum_abs / s.num });
+    else if (s.text > s.total * 0.5) textCols.push({ col: colIdx });
+  }
+  dates.sort((a, b) => a.col - b.col);
+  nums.sort((a, b) => a.col - b.col);  // sort by position (col order matches financial flow)
+  textCols.sort((a, b) => a.col - b.col);
+  
+  return {
+    dates: dates.map(x => x.col),
+    nums: nums.map(x => x.col),
+    numsByMagnitude: [...nums].sort((a, b) => b.avg - a.avg).map(x => x.col),
+    textCols: textCols.map(x => x.col),
+  };
+}
+
+// Per-row: try each candidate column, return first non-null parsed value
+function tryColsDate(rowCells, cols) {
+  for (const col of cols) {
+    const d = cd(rowCells[col]);
+    if (d) return d;
+  }
+  return null;
+}
+function tryColsNum(rowCells, cols) {
+  for (const col of cols) {
+    const n = cn(rowCells[col]);
+    if (n) return n;
+  }
+  return 0;
+}
+function tryColsStr(rowCells, cols) {
+  for (const col of cols) {
+    const s = cs(rowCells[col]);
+    if (s) return s;
+  }
+  return '';
+}
+
+async function fetchBankFlat() {
+  const id = SHEETS.bank;
+  const cutoff = getH1Cutoff();
+  
+  let table;
+  try {
+    // Primary: fetch full sheet — findHeaderMap scans first 10 rows for "TANGGAL" anchor
+    table = await fetchSheet(id, SHEET_NAMES.bank);
+  } catch (e1) {
+    // Fallback: bounded range A:N to reduce response size
+    console.warn(`[Bank] full fetch failed (${e1.message}), retrying with range A:N...`);
+    try {
+      table = await fetchSheet(id, SHEET_NAMES.bank, 'A:N');
+    } catch (e2) {
+      throw new Error(`Bank fetch failed: ${e2.message}`);
+    }
+  }
+  
+  const rows = table.rows || [];
+  const hm = findHeaderMap(table, 'TANGGAL');
+  if (!hm) throw new Error('Bank: header row tidak ketemu (cari "TANGGAL")');
+  
+  const COL_DATE     = findCol(hm.map, 'TANGGAL', 'TGL', 'DATE', 'TANGGAL TRANSAKSI');
+  const COL_REK      = findCol(hm.map, 'REKENING', 'NAMA REKENING', 'BANK', 'AKUN');
+  const COL_NAMA     = findCol(hm.map, 'NAMA TRANSAKSI', 'KETERANGAN', 'DESCRIPTION', 'DESKRIPSI');
+  const COL_KREDIT   = findCol(hm.map, 'KREDIT', 'KREDIT (RP)', 'CREDIT', 'MASUK', 'PEMASUKAN');
+  const COL_DEBIT    = findCol(hm.map, 'DEBIT', 'DEBIT (RP)', 'KELUAR', 'PENGELUARAN');
+  const COL_BALANCE  = findCol(hm.map, 'BALANCE', 'SALDO', 'SISA', 'RUNNING BALANCE');
+  const COL_JENIS    = findCol(hm.map, 'JENIS TRANSAKSI', 'JENIS', 'KATEGORI', 'TIPE TRANSAKSI');
+  
+  if ([COL_DATE, COL_REK, COL_KREDIT, COL_DEBIT, COL_BALANCE].includes(-1)) {
+    const availableCols = Object.entries(hm.map).sort((a,b) => a[1] - b[1]).map(([label, idx]) => `${idx}:${label}`).join(' | ');
+    console.error('[Bank] Available columns:', availableCols);
+    throw new Error(`Bank: kolom critical tidak ketemu (date=${COL_DATE} rek=${COL_REK} kr=${COL_KREDIT} db=${COL_DEBIT} bal=${COL_BALANCE}). FULL kolom list: ${availableCols}`);
+  }
+  
+  // Group by REKENING
+  const byRek = {};
+  for (let i = hm.headerRowIdx + 1; i < rows.length; i++) {
+    const row = rows[i];
+    if (!row || !row.c) continue;
+    const c = row.c;
+    
+    const date = cd(c[COL_DATE]);
+    const rek = cs(c[COL_REK]);
+    if (!date || !rek) continue;
+    if (date > cutoff) continue;
+    
+    const kredit = cn(c[COL_KREDIT]);
+    const debit = cn(c[COL_DEBIT]);
+    const balance = cn(c[COL_BALANCE]);
+    
+    if (!byRek[rek]) byRek[rek] = [];
+    byRek[rek].push({ date, kredit, debit, balance });
+  }
+  
+  const banks = REK_MAP.map(map => {
+    const txs = byRek[map.rekening] || [];
+    if (txs.length === 0) {
+      return { ...map, balance: 0, saldo_awal: 0, last_date: null,
+               tx_count: 0, total_in: 0, total_out: 0, history: [] };
+    }
+    txs.sort((a, b) => a.date - b.date);
+    const latest = txs[txs.length - 1];
+    
+    const byMonth = {};
+    let totalIn = 0, totalOut = 0;
+    const since = new Date(cutoff);
+    since.setDate(since.getDate() - 30);
+    
+    for (const tx of txs) {
+      const k = `${tx.date.getFullYear()}-${tx.date.getMonth() + 1}`;
+      if (!byMonth[k]) {
+        byMonth[k] = {
+          year: tx.date.getFullYear(), month: tx.date.getMonth() + 1,
+          balance: null, tx_count: 0, total_in: 0, total_out: 0,
+        };
+      }
+      byMonth[k].tx_count++;
+      if (tx.kredit > 0) byMonth[k].total_in += tx.kredit;
+      if (tx.debit > 0) byMonth[k].total_out += tx.debit;
+      byMonth[k].balance = tx.balance;
+      
+      if (tx.date >= since) {
+        if (tx.kredit > 0) totalIn += tx.kredit;
+        if (tx.debit > 0) totalOut += tx.debit;
+      }
+    }
+    
+    const history = Object.values(byMonth).sort((a, b) => (a.year - b.year) * 12 + (a.month - b.month));
+    const last6 = history.slice(-6);
+    
+    return {
+      key: map.key, name: map.name, short: map.short, currency: map.currency,
+      balance: latest.balance,
+      saldo_awal: txs[0].balance - (txs[0].kredit || 0) + (txs[0].debit || 0),
+      sheet_name: SHEET_NAMES.bank,
+      last_date: latest.date.toISOString(),
+      tx_count: txs.length,
+      total_in: totalIn,
+      total_out: totalOut,
+      history: last6,
+    };
+  });
+  
+  return banks;
+}
+
+
+// ===== CASHFLOW PARSING =====
+function parseCashflowSheet(table, year, month) {
+  const rows = table.rows;
+  if (!rows || rows.length < 5) {
+    console.warn(`[Cashflow ${year}-${month}] Too few rows (${rows?.length || 0})`);
+    return null;
+  }
+  
+  // Step 1: Find DATE ROW — row with many date cells (>= 20 day positions)
+  // Daily cols have dates here; Weekly TOTAL cols have empty cells in date row
+  let dateRowIdx = -1;
+  let dailyBudgetCols = [];
+  
+  for (let i = 0; i < Math.min(12, rows.length); i++) {
+    if (!rows[i] || !rows[i].c) continue;
+    const cells = rows[i].c;
+    const datePositions = [];
+    for (let j = 0; j < cells.length; j++) {
+      const dt = cd(cells[j]);
+      const v = cs(cells[j]);
+      if (dt instanceof Date || /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}/.test(v)) {
+        datePositions.push(j);
+      }
+    }
+    if (datePositions.length >= 20) {
+      dateRowIdx = i;
+      dailyBudgetCols = datePositions;
+      break;
+    }
+  }
+  
+  if (dateRowIdx < 0) {
+    console.warn(`[Cashflow ${year}-${month}] Date row not found in first 12 rows`);
+    return null;
+  }
+  
+  console.log(`[Cashflow ${year}-${month}] Date row idx=${dateRowIdx}, ${dailyBudgetCols.length} daily cols`);
+  
+  // Auto-detect Realisasi col offset:
+  // 2-col layout: Budget|Realisasi → realOffset = 1 (c[j+1] = Realisasi)
+  // 3-col layout: Budget|Prognosa|Realisasi → realOffset = 2 (c[j+2] = Realisasi)
+  // Detect by checking sub-header row (just below date row) for "Prognosa" between cols
+  let realOffset = 1;
+  for (let i = dateRowIdx + 1; i <= dateRowIdx + 2 && i < rows.length; i++) {
+    if (!rows[i] || !rows[i].c) continue;
+    const cells = rows[i].c;
+    if (dailyBudgetCols.length > 0) {
+      const j = dailyBudgetCols[0];
+      const labelAtJ1 = cs(cells[j + 1]).toLowerCase().trim();
+      if (labelAtJ1.startsWith('progn')) {
+        realOffset = 2;
+        console.log(`[Cashflow ${year}-${month}] Detected 3-col B|P|R layout (Prognosa at j+1) → Realisasi offset=2`);
+        break;
+      } else if (labelAtJ1.startsWith('reali')) {
+        realOffset = 1;
+        console.log(`[Cashflow ${year}-${month}] Detected 2-col B|R layout → Realisasi offset=1`);
+        break;
+      }
+    }
+  }
+  
+  const SITES = SITES_LIST;
+  const siteInit = (val) => Object.fromEntries([...SITES, 'TOTAL'].map(s => [s, val]));
+  const out = {
+    year, month,
+    site_budget: siteInit(0),
+    site_realisasi: siteInit(0),
+    site_detail: Object.fromEntries([...SITES, 'TOTAL'].map(s => [s, []])),
+    site_penerimaan: siteInit(0),
+    site_penerimaan_budget: siteInit(0),
+    saldo_kas_awal: 0,
+    saldo_kas_akhir: 0,
+    total_penerimaan: 0,
+    total_pengeluaran: 0,
+    _samples_in: [],
+    _samples_out: [],
+  };
+  
+  let curSection = null, curSite = null;
+  
+  for (let ri = dateRowIdx + 1; ri < rows.length; ri++) {
+    const r = rows[ri];
+    if (!r || !r.c) continue;
+    const c = r.c;
+    
+    // Primary label: first non-numeric text from cols 0-4
+    const labels = [cs(c[0]), cs(c[1]), cs(c[2]), cs(c[3]), cs(c[4])].filter(s => s.length > 0);
+    const primary = labels.find(s => s.length > 2 && !/^\d+$/.test(s)) || '';
+    const upper = primary.toUpperCase();
+    
+    if (!primary) continue;
+    
+    // Section markers
+    if (upper.includes('PENERIMAAN OPERASIONAL')) { curSection = 'penerimaan'; curSite = 'TOTAL'; continue; }
+    if (upper.includes('PENGELUARAN OPERASIONAL')) { curSection = 'pengeluaran'; curSite = 'TOTAL'; continue; }
+    if (upper.includes('ARUS KAS INVESTASI')) { curSection = 'inv'; continue; }
+    if (upper.includes('ARUS KAS FINANCING') || upper.includes('PENDANAAN')) { curSection = 'fin'; continue; }
+    
+    // Explicit site rows: whole row is just site name, OR specific section prefix patterns
+    // Matches: "BKM", "PENGELUARAN BKM", "PENERIMAAN BKM", "SITE BKM"
+    if (curSection === 'pengeluaran' || curSection === 'penerimaan') {
+      let detected = null;
+      if (SITES.includes(upper.trim())) {
+        detected = upper.trim();
+      } else {
+        for (const site of SITES) {
+          if (new RegExp(`^(PENGELUARAN|PENERIMAAN|SITE)\\s+${site}$`).test(upper.trim())) {
+            detected = site;
+            break;
+          }
+        }
+      }
+      if (detected) {
+        curSite = detected;
+        continue;
+      }
+    }
+    
+    // Saldo Kas Akhir row → ambil 2 value terakhir non-zero
+    // Akhir = nilai paling akhir (H-1, kemarin)
+    // Awal  = nilai sebelumnya (H-2, 2 hari lalu = yesterday's akhir)
+    if (upper.includes('SALDO KAS AKHIR') || /^[LP]\.\s*SALDO/.test(upper)) {
+      // Read both candidates for diagnostic (uses function-level realOffset)
+      const dailyVals1 = [], dailyVals2 = [];
+      for (const j of dailyBudgetCols) {
+        const v1 = cn(c[j + 1]);
+        const v2 = cn(c[j + 2]);
+        if (v1 !== 0) dailyVals1.push({col: j + 1, val: v1});
+        if (v2 !== 0) dailyVals2.push({col: j + 2, val: v2});
+      }
+      
+      // Magnitude fallback if function-level header detection landed on default
+      // Realisasi typically <500jt, Prognosa formula often >1B
+      if (realOffset === 1) {
+        const max1 = Math.max(...dailyVals1.map(x => Math.abs(x.val)), 0);
+        const max2 = Math.max(...dailyVals2.map(x => Math.abs(x.val)), 0);
+        if (max1 > 1e9 && dailyVals2.length > 0 && max2 < max1) {
+          realOffset = 2;
+          console.log(`[Cashflow ${year}-${month}] realOffset escalated to 2 via magnitude (j+1 max=${max1.toExponential(2)} > 1e9, j+2 max=${max2.toExponential(2)})`);
+        }
+      }
+      
+      const useVals = realOffset === 2 ? dailyVals2 : dailyVals1;
+      
+      // Final fallback: scan ONLY daily-adjacent cols (j+1, j+2, j+3 around each daily col)
+      // Tidak scan all-cols supaya weekly/monthly TOTAL tidak nyasar masuk (×30 inflated)
+      let finalVals = useVals;
+      if (finalVals.length === 0) {
+        const adjVals = [];
+        for (const j of dailyBudgetCols) {
+          for (const off of [1, 2, 3]) {
+            const v = cn(c[j + off]);
+            if (v !== 0) adjVals.push({col: j + off, val: v});
+          }
+        }
+        finalVals = adjVals;
+      }
+      
+      const valsArr = finalVals.map(x => x.val);
+      out.saldo_kas_akhir = valsArr[valsArr.length - 1] || 0;
+      out.saldo_kas_awal = valsArr[valsArr.length - 2] || 0;
+      console.log(`  → akhir=${out.saldo_kas_akhir}, awal=${out.saldo_kas_awal}`);
+      continue;
+    }
+    // Skip SALDO KAS AWAL row — kita derive dari AKHIR (kemarin's akhir)
+    if (upper.includes('SALDO KAS AWAL') || /^[KO]\.\s*SALDO/.test(upper)) {
+      continue;
+    }
+    
+    // Skip section header rows
+    if (/^[A-P]\.\s/.test(primary)) continue;
+    if (/^Total\s/i.test(primary)) continue;
+    
+    // Sum Budget + Realisasi across daily cols (uses function-level realOffset)
+    let totalBudget = 0, totalRealisasi = 0;
+    for (const j of dailyBudgetCols) {
+      totalBudget += cn(c[j]);
+      totalRealisasi += cn(c[j + realOffset]);
+    }
+    
+    if (totalBudget === 0 && totalRealisasi === 0) continue;
+    
+    // Per-row site detection — 3 strategies in order:
+    // 1. Strict match in any of cols 0-4 (site as separate cell)
+    // 2. Whole-word match in primary text for BKM/AKP/RCP only
+    //    (CASH excluded — "cash"/"kas" muncul di banyak konteks unrelated)
+    // 3. Fallback to curSite from section header
+    // 4. KALAU SEMUA GAGAL → masuk 'TOTAL' bucket (tidak tampil di chart/cards)
+    //    CASH cuma dapat data jika explicit (header CASH atau cell CASH).
+    let rowSite = null;
+    for (let i = 0; i < 5; i++) {
+      const cell = cs(c[i]).toUpperCase().trim();
+      if (SITES.includes(cell)) { rowSite = cell; break; }
+    }
+    if (!rowSite) {
+      const upperPrimary = primary.toUpperCase();
+      const scannableSites = SITES.filter(s => s !== 'CASH');
+      for (const site of scannableSites) {
+        if (new RegExp(`\\b${site}\\b`).test(upperPrimary)) {
+          rowSite = site;
+          break;
+        }
+      }
+    }
+    const effectiveSite = rowSite || (curSite && SITES.includes(curSite) ? curSite : 'TOTAL');
+    
+    if (curSection === 'penerimaan') {
+      out.total_penerimaan += totalRealisasi;
+      out.site_penerimaan_budget[effectiveSite] += totalBudget;
+      out.site_penerimaan[effectiveSite] += totalRealisasi;
+      if (out._samples_in.length < 5) {
+        out._samples_in.push({ primary, rowSite, curSite, effectiveSite, real: Math.round(totalRealisasi / 1e6) });
+      }
+    } else if (curSection === 'pengeluaran') {
+      out.site_budget[effectiveSite] += totalBudget;
+      out.site_realisasi[effectiveSite] += totalRealisasi;
+      out.total_pengeluaran += totalRealisasi;
+      out.site_detail[effectiveSite].push({ account: primary, budget: totalBudget, realisasi: totalRealisasi });
+      if (out._samples_out.length < 5) {
+        out._samples_out.push({ primary, rowSite, curSite, effectiveSite, real: Math.round(totalRealisasi / 1e6) });
+      }
+    }
+  }
+  
+  const siteLog = SITES.map(s => `${s}=out${out.site_realisasi[s]}/in${out.site_penerimaan[s]}`).join(' ');
+  console.log(`[Cashflow ${year}-${month}] ${siteLog} | total_in=${out.total_penerimaan} total_out=${out.total_pengeluaran} | Saldo Akhir=${out.saldo_kas_akhir}`);
+  
+  return out;
+}
+
+async function fetchCashflow() {
+  const today = new Date();
+  // Auto-rolling 12-month window ending current month
+  const start = new Date(today.getFullYear(), today.getMonth() - 11, 1);
+  const cutoffYear = start.getFullYear(), cutoffMonth = start.getMonth() + 1;
+  
+  // Build months list: from cutoff to current month inclusive
+  const months = [];
+  let m = cutoffMonth, y = cutoffYear;
+  while (y < today.getFullYear() || (y === today.getFullYear() && m <= today.getMonth() + 1)) {
+    months.push({ year: y, month: m });
+    m++;
+    if (m > 12) { m = 1; y++; }
+  }
+  
+  if (months.length === 0) {
+    console.log(`[Cashflow] No months to fetch (cutoff=${cutoffYear}-${cutoffMonth}, today=${today.getFullYear()}-${today.getMonth()+1})`);
+    return [];
+  }
+  
+  console.log(`[Cashflow] Fetching ${months.length} months in parallel from ${cutoffYear}-${cutoffMonth}`);
+  
+  const SHORT_M_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const SHORT_M_ID = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'];
+  
+  // Build candidates for one month — order tries common formats first
+  const buildCandidates = (mm) => {
+    const yy = String(mm.year).slice(2);
+    const fullM = ID_MONTHS[mm.month - 1];
+    const smId = SHORT_M_ID[mm.month - 1];
+    const smEn = SHORT_M_EN[mm.month - 1];
+    return [
+      `${smId} ${yy}`,        // Mei 26 (most common)
+      `${smEn} ${yy}`,        // May 26
+      `${smId} ${mm.year}`,   // Mei 2026
+      `${smEn} ${mm.year}`,   // May 2026
+      `${fullM} ${yy}`,       // April 26
+      `${fullM} ${mm.year}`,  // April 2026
+    ];
+  };
+  
+  // Worker per-month: tries candidates sequentially until one parses successfully
+  const fetchMonth = async (mm) => {
+    for (const sn of buildCandidates(mm)) {
+      try {
+        const table = await fetchSheet(SHEETS.cashflow, sn);
+        const data = parseCashflowSheet(table, mm.year, mm.month);
+        if (data) {
+          console.log(`[Cashflow] ${mm.year}-${mm.month} ← "${sn}"`);
+          return data;
+        }
+      } catch (e) { /* try next candidate */ }
+    }
+    console.warn(`[Cashflow] ${mm.year}-${mm.month}: tab tidak ketemu`);
+    return null;
+  };
+  
+  // Run all months in parallel
+  const settled = await Promise.all(months.map(fetchMonth));
+  return settled.filter(d => d !== null);
+}
+
+
+// ===== INVOICE PARSING (FLAT FORMAT, HEADER LOOKUP) =====
+// Single sheet "Data Invoice". Uses header row scan for robustness.
+async function fetchInvoice() {
+  const id = SHEETS.invoice;
+  const cutoff = getH1Cutoff();
+  
+  let table;
+  try {
+    // Primary: fetch full sheet — findHeaderMap scans for "NOMOR REGISTER" anchor
+    table = await fetchSheet(id, SHEET_NAMES.invoice);
+  } catch (e1) {
+    // Fallback: bounded range A:CC (81 cols) to reduce response size  
+    console.warn(`[Invoice] full fetch failed (${e1.message}), retrying with range A:CC...`);
+    try {
+      table = await fetchSheet(id, SHEET_NAMES.invoice, 'A:CC');
+    } catch (e2) {
+      throw new Error(`Invoice fetch failed: ${e2.message}`);
+    }
+  }
+  
+  const rows = table.rows || [];
+  const hm = findHeaderMap(table, 'NOMOR REGISTER');
+  if (!hm) throw new Error('Invoice: header row tidak ketemu (cari "NOMOR REGISTER")');
+  
+  // ===== Multi-col lookup =====
+  // Consolidated sheets often have BOTH AR-style cols (Tgl Inv, Nominal Inv) AND
+  // AP-style cols (Tgl Invoice, Nominal Invoice) populated row-by-row depending on type.
+  // Per-row, try ALL candidate cols and use first non-null.
+  
+  // Single-target lookups (one logical column per row)
+  const COL_REMARK   = findCol(hm.map, 'PAYMENT REMARKS', 'PAYMENT REMARK', 'REMARKS', 'REMARK', 'STATUS BAYAR');
+  const COL_NOPO     = findCol(hm.map, 'NO PO', 'NOMOR PO', 'PO NO', 'PO NUMBER');
+  const COL_NOINV    = findCol(hm.map, 'NO INV', 'NOMOR INVOICE', 'NO INVOICE', 'INV NO', 'INVOICE NO');
+  const COL_SITE     = findCol(hm.map, 'SITE', 'LOKASI');
+  const COL_ARAP     = findCol(hm.map, 'AR / AP', 'AR/AP', 'AR-AP', 'TIPE');
+  const COL_JENIS    = findCol(hm.map, 'JENIS INVOICE', 'JENIS', 'TYPE INVOICE');
+  const COL_STATUS   = findCol(hm.map, 'STATUS INVOICE', 'STATUS');
+  const COL_DESC     = findCol(hm.map, 'DESKRIPSI INVOICE', 'DESKRIPSI', 'KETERANGAN', 'DESCRIPTION');
+  let COL_PPN        = findCol(hm.map, 'PPN', 'NILAI PPN', 'PPN 11%', 'PPN 10%');
+  const COL_KEKUR    = findCol(hm.map, 'KEKURANGAN/ KELEBIHAN BAYAR', 'KEKURANGAN', 'KELEBIHAN', 'SISA BAYAR', 'SELISIH');
+  
+  // PPh columns (sum all variants)
+  const COLS_PPH = findAllCols(hm.map, ['PPH 15', 'PPH 23', 'PPH FINAL', 'PPH UMKM', 'PPH 4%', 'PPH PASAL 4', 'PPH PS 4', 'PPH 21', 'PPH PS 15', 'PPH PS 23']);
+  
+  // Multi-col candidates (per-row fallback)
+  const COLS_REG     = findAllCols(hm.map, ['NOMOR REGISTER', 'NO REGISTER', 'REGISTER']);
+  const COLS_TGL_INV = findAllCols(hm.map, ['TGL INVOICE', 'TGL INV', 'TANGGAL INVOICE', 'TANGGAL INV', 'INVOICE DATE']);
+  const COLS_TGL_KIR = findAllCols(hm.map, ['TGL MASUK INVOICE', 'TGL KIRIM INVOICE', 'TGL MASUK', 'TGL KIRIM', 'TGL TERIMA', 'TGL TERIMA INVOICE']);
+  const COLS_DUE     = findAllCols(hm.map, ['DUE DATE', 'TGL JATUH TEMPO', 'TANGGAL JATUH TEMPO', 'JATUH TEMPO']);
+  const COLS_COMPANY = findAllCols(hm.map, ['COMPANY', 'CUSTOMER', 'VENDOR', 'NAMA PERUSAHAAN', 'NAMA PIHAK', 'NAMA']);
+  const COLS_NOMINAL = findAllCols(hm.map, ['NOMINAL INV', 'NOMINAL INVOICE', 'NILAI INVOICE', 'JUMLAH INVOICE', 'NILAI INV', 'DPP', 'TAX BASE']);
+  const COLS_TOTAL   = findAllCols(hm.map, ['TOTAL INVOICE', 'TOTAL INV', 'GRAND TOTAL', 'NOMINAL TOTAL', 'TOTAL TAGIHAN']);
+  const COLS_HRSBAYAR = findAllCols(hm.map, ['NOMINAL HARUS DIBAYAR', 'HARUS DIBAYAR', 'NETT BAYAR', 'BAYAR BERSIH', 'TOTAL DIBAYAR', 'NETTO']);
+  const COLS_BAYAR   = findAllCols(hm.map, ['TGL BAYAR 1', 'TGL BAYAR', 'TANGGAL BAYAR', 'TGL PEMBAYARAN', 'PAID DATE', 'PAYMENT DATE']);
+  const COLS_BUPOT   = findAllCols(hm.map, ['TGL BUKPOT', 'TGL BUKTI POTONG', 'TANGGAL BUKTI POTONG', 'TGL BP', 'BUKPOT']);
+  
+  // ===== Type inference for UNMAPPED columns (header truly missing in user's sheet) =====
+  // Scans data rows to detect date columns and amount columns without header labels.
+  // Auto-augments candidate lists so dashboard works even when headers are incomplete.
+  const inferred = inferColTypes(table, hm);
+  console.log('[Invoice] Inferred unmapped col types:');
+  console.log(`  date cols:    [${inferred.dates.join(', ')}]`);
+  console.log(`  num cols:     [${inferred.nums.join(', ')}] (sorted by position)`);
+  console.log(`  num biggest:  [${inferred.numsByMagnitude.slice(0, 3).join(', ')}] (sorted by avg magnitude DESC)`);
+  
+  // For date cols: classify by POSITION relative to known cols
+  // - dates BEFORE first labeled TGL BAYAR / Due / Bupot are likely TGL_INV / TGL_KIRIM / DUE
+  // - dates AFTER are likely additional payment dates (TGL_BAYAR)
+  const firstPaymentCol = Math.min(
+    ...(COLS_BAYAR.length ? COLS_BAYAR : [Infinity]),
+    ...(COLS_BUPOT.length ? COLS_BUPOT : [Infinity])
+  );
+  const earlyDateCols = inferred.dates.filter(c => c < firstPaymentCol);
+  const lateDateCols = inferred.dates.filter(c => c >= firstPaymentCol);
+  
+  // First early date col is most likely TGL_INV
+  if (COLS_TGL_INV.length === 0 && earlyDateCols.length > 0) {
+    COLS_TGL_INV.push(earlyDateCols[0]);
+    console.log(`  [auto] TGL_INV inferred → col ${earlyDateCols[0]}`);
+  }
+  
+  // Content-based inference for TGL_KIRIM and DUE_DATE
+  // POSITIONAL CONSTRAINT: only consider date cols within TGL_INV+1 to TGL_INV+5
+  // (DUE_DATE is structurally adjacent to TGL_INV in invoice metadata; far cols are payment dates)
+  if (COLS_TGL_INV.length > 0 && earlyDateCols.length > 1) {
+    const tglInvCol = COLS_TGL_INV[0];
+    // Candidates: date cols immediately following TGL_INV (within 5 positions)
+    const nearbyDateCols = earlyDateCols.filter(c => c > tglInvCol && c <= tglInvCol + 5);
+    const dateDiffs = [];
+    
+    for (const c of nearbyDateCols) {
+      let sum = 0, count = 0;
+      for (let i = (hm.headerRowIdx || 0) + 1; i < Math.min((hm.headerRowIdx || 0) + 51, rows.length); i++) {
+        const r = rows[i];
+        if (!r?.c) continue;
+        const invDate = cd(r.c[tglInvCol]);
+        const otherDate = cd(r.c[c]);
+        if (!invDate || !otherDate) continue;
+        sum += (otherDate - invDate) / 86400000;
+        count++;
+      }
+      if (count >= 3) {
+        dateDiffs.push({ col: c, avgDiff: sum / count, count });
+      }
+    }
+    
+    if (dateDiffs.length > 0) {
+      const sortedDesc = [...dateDiffs].sort((a, b) => b.avgDiff - a.avgDiff);
+      const sortedAsc = [...dateDiffs].sort((a, b) => Math.abs(a.avgDiff) - Math.abs(b.avgDiff));
+      
+      console.log(`  [auto] Date col diffs from TGL_INV[${tglInvCol}] (positional window +1..+5):`, dateDiffs.map(d => `col ${d.col}: avg ${d.avgDiff.toFixed(1)} days (n=${d.count})`).join(' | '));
+      
+      // DUE: most positive diff among nearby cols, must be at least +7 days
+      if (COLS_DUE.length === 0 && sortedDesc[0].avgDiff >= 7) {
+        COLS_DUE.push(sortedDesc[0].col);
+        console.log(`  [auto] DUE_DATE inferred → col ${sortedDesc[0].col} (avg +${sortedDesc[0].avgDiff.toFixed(0)} days, positionally near TGL_INV)`);
+      }
+      // TGL_KIRIM: smallest absolute diff (closest to TGL_INV)
+      const kirimCandidate = sortedAsc.find(d => d.col !== (COLS_DUE[0] || -1));
+      if (COLS_TGL_KIR.length === 0 && kirimCandidate) {
+        COLS_TGL_KIR.push(kirimCandidate.col);
+        console.log(`  [auto] TGL_KIRIM inferred → col ${kirimCandidate.col} (avg ${kirimCandidate.avgDiff.toFixed(0)} days)`);
+      }
+    } else {
+      console.log(`  [auto] No date cols within TGL_INV+1..+5 → skip DUE/KIR inference, all other dates → TGL_BAYAR`);
+    }
+  }
+  
+  // Remaining early dates (not assigned to INV/KIR/DUE) → likely additional payment dates
+  const assignedDateCols = new Set([
+    ...(COLS_TGL_INV.length ? [COLS_TGL_INV[0]] : []),
+    ...(COLS_TGL_KIR.length ? [COLS_TGL_KIR[0]] : []),
+    ...(COLS_DUE.length ? [COLS_DUE[0]] : []),
+  ]);
+  for (const c of earlyDateCols) {
+    if (!assignedDateCols.has(c) && !COLS_BAYAR.includes(c)) {
+      COLS_BAYAR.push(c);
+      console.log(`  [auto] TGL_BAYAR extra → col ${c} (unassigned early date)`);
+    }
+  }
+  // Late dates → augment payment date candidates
+  if (lateDateCols.length > 0) {
+    for (const c of lateDateCols) {
+      if (!COLS_BAYAR.includes(c)) {
+        COLS_BAYAR.push(c);
+        console.log(`  [auto] TGL_BAYAR late candidate → col ${c}`);
+      }
+    }
+  }
+  COLS_BAYAR.sort((a, b) => a - b);
+  
+  // For amount cols: classify unmapped numeric cols by position relative to known cols
+  // - num cols BEFORE first labeled TGL BAYAR are likely NOMINAL/PPN/TOTAL/PPH/HRSBAYAR
+  // - 3 largest (by magnitude) are typically NOMINAL, TOTAL, NOMINAL HARUS DIBAYAR
+  const earlyNumCols = inferred.nums.filter(c => c < firstPaymentCol);
+  const earlyNumByMag = inferred.numsByMagnitude.filter(c => c < firstPaymentCol);
+  
+  if (COLS_NOMINAL.length === 0 && earlyNumCols.length > 0) {
+    // First num col by position = NOMINAL INV (DPP, base amount)
+    COLS_NOMINAL.push(earlyNumCols[0]);
+    console.log(`  [auto] NOMINAL inferred → col ${earlyNumCols[0]}`);
+  }
+  if (COLS_TOTAL.length === 0 && earlyNumByMag.length > 0) {
+    // Largest amount col = TOTAL INVOICE (gross including PPN)
+    COLS_TOTAL.push(earlyNumByMag[0]);
+    console.log(`  [auto] TOTAL inferred → col ${earlyNumByMag[0]} (largest avg amount)`);
+  }
+  if (COLS_HRSBAYAR.length === 0 && earlyNumByMag.length > 1) {
+    // Second largest = NOMINAL HARUS DIBAYAR (after PPh withholdings)
+    COLS_HRSBAYAR.push(earlyNumByMag[1]);
+    console.log(`  [auto] HRSBAYAR inferred → col ${earlyNumByMag[1]} (2nd largest)`);
+  }
+  
+  // PPN inference: num col strictly between NOMINAL and TOTAL position
+  // (typical structure: NOMINAL (DPP) → PPN (~11%) → TOTAL (DPP+PPN))
+  if (COL_PPN < 0 && COLS_NOMINAL.length > 0 && COLS_TOTAL.length > 0) {
+    const nomCol = COLS_NOMINAL[0];
+    const totCol = COLS_TOTAL[0];
+    if (nomCol < totCol) {
+      const between = inferred.nums.filter(c => c > nomCol && c < totCol);
+      if (between.length >= 1) {
+        COL_PPN = between[0];
+        console.log(`  [auto] PPN inferred → col ${COL_PPN} (between NOMINAL[${nomCol}] and TOTAL[${totCol}])`);
+      }
+    }
+  }
+  
+  // PPh inference: num cols strictly between TOTAL and HRSBAYAR
+  // (typical structure: TOTAL → PPh 15/23/Final/4%/PS4/21 → NOMINAL HARUS DIBAYAR)
+  if (COLS_PPH.length === 0 && COLS_TOTAL.length > 0 && COLS_HRSBAYAR.length > 0) {
+    const totCol = COLS_TOTAL[0];
+    const hrsCol = COLS_HRSBAYAR[0];
+    if (totCol < hrsCol) {
+      const between = inferred.nums.filter(c => c > totCol && c < hrsCol);
+      for (const c of between) {
+        COLS_PPH.push(c);
+      }
+      if (between.length > 0) {
+        console.log(`  [auto] PPH cols inferred → [${between.join(', ')}] (between TOTAL[${totCol}] and HRSBAYAR[${hrsCol}])`);
+      }
+    }
+  }
+  
+  if (COLS_REG.length === 0 || COL_ARAP === -1 || COLS_TGL_INV.length === 0 || (COLS_NOMINAL.length === 0 && COLS_TOTAL.length === 0 && COLS_HRSBAYAR.length === 0)) {
+    const availableCols = Object.entries(hm.map).sort((a,b) => a[1] - b[1]).map(([label, idx]) => `${idx}:${label}`).join(' | ');
+    console.error('[Invoice] Available columns:', availableCols);
+    throw new Error(`Invoice: kolom critical tidak ketemu (regCols=${COLS_REG.length} arap=${COL_ARAP} tglCols=${COLS_TGL_INV.length} amountCols=${COLS_NOMINAL.length + COLS_TOTAL.length + COLS_HRSBAYAR.length}). FULL kolom list: ${availableCols}`);
+  }
+  
+  console.log('[Invoice] Multi-col candidates resolved:');
+  const idxToLabel = {};
+  for (const [label, idx] of Object.entries(hm.map)) idxToLabel[idx] = label;
+  const showCols = (cols) => cols.map(i => `[${i}]${idxToLabel[i]}`).join(', ') || '(none)';
+  console.log(`  REG cols:      ${showCols(COLS_REG)}`);
+  console.log(`  ARAP col:      [${COL_ARAP}]${idxToLabel[COL_ARAP]}`);
+  console.log(`  TGL_INV cols:  ${showCols(COLS_TGL_INV)}`);
+  console.log(`  COMPANY cols:  ${showCols(COLS_COMPANY)}`);
+  console.log(`  NOMINAL cols:  ${showCols(COLS_NOMINAL)}`);
+  console.log(`  TOTAL cols:    ${showCols(COLS_TOTAL)}`);
+  console.log(`  PPN col:       ${COL_PPN >= 0 ? `[${COL_PPN}]${idxToLabel[COL_PPN] || '(inferred)'}` : '(none)'}`);
+  console.log(`  PPH cols:      ${showCols(COLS_PPH)}`);
+  console.log(`  HRSBAYAR cols: ${showCols(COLS_HRSBAYAR)}`);
+  console.log(`  DUE cols:      ${showCols(COLS_DUE)}`);
+  console.log(`  BAYAR cols:    ${showCols(COLS_BAYAR)}`);
+  console.log(`  BUPOT cols:    ${showCols(COLS_BUPOT)}`);
+  
+  const result = { ar: [], ap: [], ppn_keluaran: {}, ppn_masukan: {} };
+  const stats = { totalRows: 0, noReg: 0, noArap: 0, badArap: 0, noTgl: 0, canceled: 0, ar: 0, ap: 0 };
+  
+  for (let i = hm.headerRowIdx + 1; i < rows.length; i++) {
+    const row = rows[i];
+    if (!row || !row.c) continue;
+    const c = row.c;
+    stats.totalRows++;
+    
+    const reg = tryColsStr(c, COLS_REG);
+    if (!reg) { stats.noReg++; continue; }
+    
+    // Classify by COL_ARAP value — accept many spelling variants
+    const ar_ap_norm = cs(c[COL_ARAP]).toUpperCase();
+    let isAR = false, isAP = false;
+    if (ar_ap_norm) {
+      // Match: AR, A.R, AR-IC, ARIC, AccountReceivable, Receivable, Piutang
+      //        AP, A.P, AP-IC, APIC, AccountsPayable, Payable, Hutang
+      isAR = /(^|[^A-Z])A\.?R($|[^A-Z])|RECEIV|PIUTANG/.test(ar_ap_norm);
+      isAP = /(^|[^A-Z])A\.?P($|[^A-Z])|PAYAB|HUTANG/.test(ar_ap_norm);
+    }
+    // Fallback: register prefix
+    if (!isAR && !isAP) {
+      const regUp = reg.toUpperCase();
+      if (/^AR\b|^AR[\/\-]/.test(regUp)) isAR = true;
+      else if (/^AP\b|^AP[\/\-]/.test(regUp)) isAP = true;
+    }
+    if (!isAR && !isAP) { stats.badArap++; continue; }
+    
+    const tgl_inv = tryColsDate(c, COLS_TGL_INV);
+    if (!tgl_inv) stats.noTgl++;
+    
+    const remark = cs(c[COL_REMARK]).toUpperCase();
+    const jenis = cs(c[COL_JENIS]).toUpperCase();
+    const status = cs(c[COL_STATUS]).toUpperCase();
+    
+    if (status === 'CANCELED' || remark === 'CANCELED' || remark === 'CANCEL') { stats.canceled++; continue; }
+    
+    const tgl_inv_iso = tgl_inv ? tgl_inv.toISOString() : null;
+    const tgl_kirim = tryColsDate(c, COLS_TGL_KIR)?.toISOString() || null;
+    const due_date = tryColsDate(c, COLS_DUE)?.toISOString() || null;
+    const company = tryColsStr(c, COLS_COMPANY);
+    const site = COL_SITE >= 0 ? cs(c[COL_SITE]) : '';
+    
+    const nominal_inv = tryColsNum(c, COLS_NOMINAL);
+    let ppn = COL_PPN >= 0 ? cn(c[COL_PPN]) : 0;
+    const total_inv = tryColsNum(c, COLS_TOTAL);
+    const pph_total = COLS_PPH.reduce((sum, col) => sum + cn(c[col]), 0);
+    const harus_bayar = tryColsNum(c, COLS_HRSBAYAR);
+    const tgl_bayar_1 = tryColsDate(c, COLS_BAYAR)?.toISOString() || null;
+    const kekurangan = COL_KEKUR >= 0 ? cn(c[COL_KEKUR]) : 0;
+    const tgl_bupot = tryColsDate(c, COLS_BUPOT)?.toISOString() || null;
+    
+    // PPN computation fallback for PPN-jenis invoices:
+    // Indonesia PPN 11%: TOTAL = DPP × 1.11 → PPN = TOTAL × (11/111) ≈ Total × 0.0991
+    // Works for both AR & AP regardless of NOMINAL col detection accuracy.
+    if (ppn === 0 && jenis.includes('PPN') && !jenis.includes('NON') && total_inv > 0) {
+      ppn = total_inv * (11 / 111);
+    }
+    
+    // status_dd: prioritize REMARK column (user manually marks "OVER DUE" / "PAID")
+    let status_dd = '';
+    let overdue_days = 0;
+    if (remark.includes('PAID') || tgl_bayar_1) {
+      status_dd = 'Paid';
+    } else if (remark.includes('OVER') || remark.includes('LEWAT')) {
+      // User explicitly marked as overdue in REMARK column — trust it
+      status_dd = 'Lewat Jatuh Tempo';
+      if (due_date) {
+        overdue_days = Math.max(0, Math.floor((new Date() - new Date(due_date)) / 86400000));
+      } else if (tgl_inv) {
+        // Estimate: assume 30-day terms if no explicit due_date
+        overdue_days = Math.max(0, Math.floor((new Date() - tgl_inv) / 86400000) - 30);
+      }
+    } else if (due_date) {
+      const dueDt = new Date(due_date);
+      const diff = Math.floor((new Date() - dueDt) / 86400000);
+      if (diff > 0) { status_dd = 'Lewat Jatuh Tempo'; overdue_days = diff; }
+      else { status_dd = 'Belum Jatuh Tempo'; }
+    } else {
+      status_dd = 'Belum Jatuh Tempo';
+    }
+    
+    // Amount priority: Total Invoice (gross) > Harus Bayar (post-PPh) > Nominal (DPP)
+    const amount = total_inv || harus_bayar || nominal_inv;
+    
+    const r = {
+      register: reg, remark, status_inv: status, jenis,
+      company, vendor: company, site,
+      tgl_inv: tgl_inv_iso, tgl_kirim, due_date, tgl_bayar: tgl_bayar_1, tgl_bupot,
+      amount,
+      ppn, tax_base: nominal_inv, pph_total, kekurangan,
+      status_dd, overdue_days,
+    };
+    
+    if (jenis.includes('PPN') && !jenis.includes('NON') && ppn > 0 && tgl_inv_iso) {
+      const k = tgl_inv_iso.slice(0, 7);
+      if (isAR) result.ppn_keluaran[k] = (result.ppn_keluaran[k] || 0) + ppn;
+      else if (isAP) result.ppn_masukan[k] = (result.ppn_masukan[k] || 0) + ppn;
+    }
+    
+    if (isAR) { result.ar.push(r); stats.ar++; }
+    else if (isAP) { result.ap.push(r); stats.ap++; }
+  }
+  
+  console.log('[Invoice] Filter stats:', stats);
+  
+  // Check quality of parsed data — if many rows parsed but missing tgl/amount, dump samples
+  const arNoDate = result.ar.filter(r => !r.tgl_inv).length;
+  const arNoAmount = result.ar.filter(r => !r.amount).length;
+  const apNoDate = result.ap.filter(r => !r.tgl_inv).length;
+  const apNoAmount = result.ap.filter(r => !r.amount).length;
+  
+  if (result.ar.length > 0 || result.ap.length > 0) {
+    console.log(`[Invoice] Data quality: AR ${result.ar.length} rows (${arNoDate} no_tgl, ${arNoAmount} no_amount) · AP ${result.ap.length} rows (${apNoDate} no_tgl, ${apNoAmount} no_amount)`);
+  }
+  
+  const dataQualityBad = (result.ar.length > 0 && (arNoDate / result.ar.length > 0.5 || arNoAmount / result.ar.length > 0.5))
+                      || (result.ap.length > 0 && (apNoDate / result.ap.length > 0.5 || apNoAmount / result.ap.length > 0.5));
+  
+  if (dataQualityBad || (stats.ar === 0 && stats.ap === 0 && stats.totalRows > 0)) {
+    console.warn('[Invoice] ⚠ Data quality issue! Sample of first 3 data rows (raw c.v values):');
+    for (let i = hm.headerRowIdx + 1; i < Math.min(hm.headerRowIdx + 4, rows.length); i++) {
+      const r = rows[i];
+      if (!r?.c) continue;
+      const sample = {};
+      for (const [label, colIdx] of Object.entries(hm.map)) {
+        const cell = r.c[colIdx];
+        sample[`${colIdx}:${label}`] = cell ? { v: cell.v, f: cell.f } : null;
+      }
+      console.warn(`Row ${i}:`, sample);
+    }
+    const availableCols = Object.entries(hm.map).sort((a,b) => a[1] - b[1]).map(([label, idx]) => `${idx}:${label}`).join(' | ');
+    console.warn('[Invoice] All headers detected:', availableCols);
+  }
+  
+  // ===== COMPREHENSIVE DIAGNOSTIC for AR/AP business logic =====
+  // Helps debug: PPN tracking, overdue detection, bupot pending, payment tracking
+  const today = new Date();
+  const arPpn = result.ar.filter(r => r.jenis && r.jenis.includes('PPN') && !r.jenis.includes('NON') && r.ppn > 0).length;
+  const apPpn = result.ap.filter(r => r.jenis && r.jenis.includes('PPN') && !r.jenis.includes('NON') && r.ppn > 0).length;
+  const totalPpnKeluaran = Object.values(result.ppn_keluaran).reduce((s, v) => s + v, 0);
+  const totalPpnMasukan = Object.values(result.ppn_masukan).reduce((s, v) => s + v, 0);
+  
+  // Use status_dd which respects REMARK column (e.g. "OVER DUE") not just due_date
+  const apOverdue = result.ap.filter(r => r.status_dd === 'Lewat Jatuh Tempo').length;
+  const arOverdue = result.ar.filter(r => r.status_dd === 'Lewat Jatuh Tempo').length;
+  
+  const apPaid = result.ap.filter(r => r.status_dd === 'Paid' || r.remark === 'PAID' || r.tgl_bayar).length;
+  const apPaidNoBupot = result.ap.filter(r => 
+    (r.tgl_bayar || r.remark === 'PAID') && !r.tgl_bupot && r.pph_total > 0
+  ).length;
+  const apWithPph = result.ap.filter(r => r.pph_total > 0).length;
+  const apWithDue = result.ap.filter(r => r.due_date).length;
+  const apWithBayar = result.ap.filter(r => r.tgl_bayar).length;
+  
+  console.log('═══════════════ BUSINESS LOGIC DIAGNOSTIC ═══════════════');
+  console.log(`AR: total=${result.ar.length}, has_PPN_jenis=${arPpn}, overdue=${arOverdue}`);
+  console.log(`AP: total=${result.ap.length}, has_PPN_jenis=${apPpn}, with_due_date=${apWithDue}, overdue=${apOverdue}`);
+  console.log(`AP paid: ${apPaid}, with PPh: ${apWithPph}, paid_no_bupot: ${apPaidNoBupot}`);
+  console.log(`PPN Keluaran total: ${totalPpnKeluaran.toLocaleString('id-ID')}`);
+  console.log(`PPN Masukan total:  ${totalPpnMasukan.toLocaleString('id-ID')}`);
+  console.log(`PPN Net position:   ${(totalPpnKeluaran - totalPpnMasukan).toLocaleString('id-ID')} ${totalPpnKeluaran < totalPpnMasukan ? '(LEBIH BAYAR)' : '(KURANG BAYAR)'}`);
+  
+  // Sample 3 AP rows for verification
+  if (result.ap.length > 0) {
+    console.log('--- Sample 3 AP rows ---');
+    result.ap.slice(0, 3).forEach((r, i) => {
+      console.log(`  AP[${i}]: reg=${r.register} jenis=${r.jenis} ppn=${r.ppn} pph_total=${r.pph_total} amount=${r.amount} due=${r.due_date?.slice(0,10) || 'null'} bayar=${r.tgl_bayar?.slice(0,10) || 'null'} bupot=${r.tgl_bupot?.slice(0,10) || 'null'} remark=${r.remark}`);
+    });
+  }
+  if (result.ar.length > 0) {
+    console.log('--- Sample 3 AR rows ---');
+    result.ar.slice(0, 3).forEach((r, i) => {
+      console.log(`  AR[${i}]: reg=${r.register} jenis=${r.jenis} ppn=${r.ppn} amount=${r.amount} due=${r.due_date?.slice(0,10) || 'null'} bayar=${r.tgl_bayar?.slice(0,10) || 'null'}`);
+    });
+  }
+  console.log('═════════════════════════════════════════════════════════');
+  
+  // Expose stats untuk debugging dari Console
+  window._lastInvoiceStats = stats;
+  window._lastInvoiceCols = { COLS_REG, COL_ARAP, COLS_TGL_INV, COLS_NOMINAL, COLS_TOTAL, COL_PPN, COLS_PPH, COLS_HRSBAYAR, COLS_DUE, COLS_COMPANY, COLS_BAYAR, COLS_BUPOT, idxToLabel };
+  window._lastBusinessStats = { totalPpnKeluaran, totalPpnMasukan, apOverdue, apPaid, apPaidNoBupot, apWithPph, apWithDue };
+  result._stats = stats;
+  result._dataQuality = { arNoDate, arNoAmount, apNoDate, apNoAmount };
+  
+  return result;
+}
+
+// Diagnostic: probe each Sheet ID via JSONP, return detailed status per source
+async function diagnose() {
+  const results = [];
+  for (const [src, sid] of Object.entries(SHEETS)) {
+    const sheetName = SHEET_NAMES[src] || (src === 'cashflow' ? 'Apr 26' : src);
+    const t0 = Date.now();
+    try {
+      const table = await fetchSheetJSONP(sid, sheetName, 'A1:A1');
+      const dur = Date.now() - t0;
+      results.push({ src, sheetName, ok: true, dur, msg: 'OK' });
+    } catch (e) {
+      const dur = Date.now() - t0;
+      results.push({ src, sheetName, ok: false, dur, msg: e.message });
+    }
+  }
+  return results;
+}
+
+// ============ DEBUG PANEL ============
+// Surfaces internal state (column mappings, sample rows, business stats) in UI
+// so user can debug & share without opening DevTools Console.
+window.openDebugPanel = () => {
+  const panel = document.getElementById('debug-panel');
+  const content = document.getElementById('debug-content');
+  if (!panel || !content) return;
+  
+  const lines = [];
+  lines.push(`FAT Dashboard Debug Snapshot — ${new Date().toLocaleString('id-ID')}`);
+  lines.push(`Version: ${APP_VERSION}`);
+  lines.push('');
+  
+  // === Column resolution ===
+  const cols = window._lastInvoiceCols;
+  if (cols) {
+    lines.push('━━━ INVOICE COLUMN MAPPING ━━━');
+    const show = (label, arr) => {
+      if (Array.isArray(arr)) {
+        const named = arr.map(i => `[${i}]${cols.idxToLabel[i] || '(inferred)'}`).join(', ');
+        lines.push(`  ${label.padEnd(14)} ${named || '(none)'}`);
+      } else if (typeof arr === 'number') {
+        lines.push(`  ${label.padEnd(14)} ${arr >= 0 ? `[${arr}]${cols.idxToLabel[arr] || '(inferred)'}` : '(none)'}`);
+      }
+    };
+    show('REG cols:', cols.COLS_REG);
+    show('ARAP col:', cols.COL_ARAP);
+    show('TGL_INV cols:', cols.COLS_TGL_INV);
+    show('COMPANY cols:', cols.COLS_COMPANY);
+    show('NOMINAL cols:', cols.COLS_NOMINAL);
+    show('TOTAL cols:', cols.COLS_TOTAL);
+    show('PPN col:', cols.COL_PPN);
+    show('PPH cols:', cols.COLS_PPH);
+    show('HRSBAYAR cols:', cols.COLS_HRSBAYAR);
+    show('DUE cols:', cols.COLS_DUE);
+    show('BAYAR cols:', cols.COLS_BAYAR);
+    show('BUPOT cols:', cols.COLS_BUPOT);
+    lines.push('');
+  }
+  
+  // === Business stats ===
+  const bs = window._lastBusinessStats;
+  if (bs) {
+    lines.push('━━━ BUSINESS LOGIC STATS ━━━');
+    lines.push(`  AP overdue:        ${bs.apOverdue}`);
+    lines.push(`  AP with due_date:  ${bs.apWithDue}`);
+    lines.push(`  AP paid:           ${bs.apPaid}`);
+    lines.push(`  AP with PPh:       ${bs.apWithPph}`);
+    lines.push(`  AP paid no bupot:  ${bs.apPaidNoBupot}`);
+    lines.push(`  PPN Keluaran:      Rp ${bs.totalPpnKeluaran.toLocaleString('id-ID')}`);
+    lines.push(`  PPN Masukan:       Rp ${bs.totalPpnMasukan.toLocaleString('id-ID')}`);
+    const net = bs.totalPpnKeluaran - bs.totalPpnMasukan;
+    lines.push(`  Net position:      Rp ${net.toLocaleString('id-ID')} (${net < 0 ? 'LEBIH BAYAR' : net > 0 ? 'KURANG BAYAR' : 'NIHIL'})`);
+    lines.push('');
+  }
+  
+  // === Parser stats ===
+  const ps = window._lastInvoiceStats;
+  if (ps) {
+    lines.push('━━━ PARSER FILTER STATS ━━━');
+    lines.push(`  Total rows scanned: ${ps.totalRows}`);
+    lines.push(`  Rejected (no reg): ${ps.noReg}`);
+    lines.push(`  Rejected (bad arap): ${ps.badArap}`);
+    lines.push(`  Rejected (canceled): ${ps.canceled}`);
+    lines.push(`  Rows without tgl_inv: ${ps.noTgl}`);
+    lines.push(`  Accepted AR: ${ps.ar}`);
+    lines.push(`  Accepted AP: ${ps.ap}`);
+    lines.push('');
+  }
+  
+  // === Sample rows ===
+  if (DATA.ar?.length || DATA.ap?.length) {
+    lines.push('━━━ SAMPLE 5 AP ROWS ━━━');
+    (DATA.ap || []).slice(0, 5).forEach((r, i) => {
+      lines.push(`  AP[${i}] reg=${r.register}`);
+      lines.push(`         jenis=${r.jenis} ppn=${r.ppn} pph_total=${r.pph_total} amount=${r.amount} tax_base/nominal=${r.tax_base}`);
+      lines.push(`         tgl_inv=${r.tgl_inv?.slice(0,10) || 'null'} due=${r.due_date?.slice(0,10) || 'null'} bayar=${r.tgl_bayar?.slice(0,10) || 'null'} bupot=${r.tgl_bupot?.slice(0,10) || 'null'}`);
+      lines.push(`         status_dd=${r.status_dd} overdue_days=${r.overdue_days} remark=${r.remark}`);
+    });
+    lines.push('');
+    lines.push('━━━ SAMPLE 5 AR ROWS ━━━');
+    (DATA.ar || []).slice(0, 5).forEach((r, i) => {
+      lines.push(`  AR[${i}] reg=${r.register}`);
+      lines.push(`         jenis=${r.jenis} ppn=${r.ppn} amount=${r.amount} tax_base/nominal=${r.tax_base}`);
+      lines.push(`         tgl_inv=${r.tgl_inv?.slice(0,10) || 'null'} due=${r.due_date?.slice(0,10) || 'null'} bayar=${r.tgl_bayar?.slice(0,10) || 'null'}`);
+    });
+    lines.push('');
+  }
+  
+  // === Header map ===
+  if (cols?.idxToLabel) {
+    lines.push('━━━ DETECTED HEADERS (col index : label) ━━━');
+    const sortedLabels = Object.entries(cols.idxToLabel).sort((a,b) => parseInt(a[0]) - parseInt(b[0]));
+    sortedLabels.forEach(([idx, label]) => lines.push(`  ${idx.padStart(3)} : ${label}`));
+    lines.push('');
+  }
+  
+  // === Cashflow data per month ===
+  if (DATA.cashflow?.length) {
+    lines.push('━━━ CASHFLOW PER MONTH (cashout/cashin per site, M = juta) ━━━');
+    const last8 = DATA.cashflow.slice(-8);
+    const fmt = v => (Math.round(v / 1e6 * 10) / 10).toFixed(1) + 'M';
+    lines.push('  Month    | Site_Realisasi (cashout)        | Site_Penerimaan (cashin)        | Total_in / Total_out');
+    last8.forEach(c => {
+      const mo = `${SHORT_MONTHS[c.month - 1]} ${String(c.year).slice(2)}`;
+      const outStr = SITES_LIST.map(s => `${s}=${fmt(c.site_realisasi?.[s] || 0)}`).join(' ');
+      const inStr = SITES_LIST.map(s => `${s}=${fmt(c.site_penerimaan?.[s] || 0)}`).join(' ');
+      const tot = `in=${fmt(c.total_penerimaan || 0)} out=${fmt(c.total_pengeluaran || 0)}`;
+      lines.push(`  ${mo.padEnd(8)} | ${outStr.padEnd(32)} | ${inStr.padEnd(32)} | ${tot}`);
+    });
+    
+    // Also show TOTAL bucket (data tidak ke-attribute ke site mana pun)
+    const totalBucketOut = DATA.cashflow.reduce((s, c) => s + (c.site_realisasi?.TOTAL || 0), 0);
+    const totalBucketIn = DATA.cashflow.reduce((s, c) => s + (c.site_penerimaan?.TOTAL || 0), 0);
+    if (totalBucketOut > 0 || totalBucketIn > 0) {
+      lines.push('');
+      lines.push(`  ⚠️ Data ke bucket TOTAL (tidak ter-attribute ke site): out=${fmt(totalBucketOut)} in=${fmt(totalBucketIn)}`);
+    }
+    
+    // Show row samples from latest month (helps see what parser reads)
+    const latest = DATA.cashflow[DATA.cashflow.length - 1];
+    if (latest?._samples_out?.length || latest?._samples_in?.length) {
+      lines.push('');
+      lines.push(`━━━ SAMPLE ROWS dari ${SHORT_MONTHS[latest.month - 1]} ${latest.year} ━━━`);
+      if (latest._samples_out?.length) {
+        lines.push('  PENGELUARAN samples:');
+        latest._samples_out.forEach((r, i) => {
+          lines.push(`    [${i}] primary="${r.primary}" rowSite=${r.rowSite || '-'} curSite=${r.curSite} → effective=${r.effectiveSite} (real=${r.real}M)`);
+        });
+      }
+      if (latest._samples_in?.length) {
+        lines.push('  PENERIMAAN samples:');
+        latest._samples_in.forEach((r, i) => {
+          lines.push(`    [${i}] primary="${r.primary}" rowSite=${r.rowSite || '-'} curSite=${r.curSite} → effective=${r.effectiveSite} (real=${r.real}M)`);
+        });
+      }
+    }
+    
+    // Diagnostic warnings
+    const totalInAcrossSites = DATA.cashflow.reduce((s, c) => 
+      s + SITES_LIST.reduce((a, k) => a + (c.site_penerimaan?.[k] || 0), 0), 0);
+    const totalInAcrossTotal = DATA.cashflow.reduce((s, c) => s + (c.total_penerimaan || 0), 0);
+    if (totalInAcrossSites === 0 && totalInAcrossTotal > 0) {
+      lines.push('');
+      lines.push(`  ⚠️ DIAGNOSIS: Sum site_penerimaan = 0, total_penerimaan = ${fmt(totalInAcrossTotal)}`);
+      lines.push(`     Penerimaan section di sheet kemungkinan TIDAK punya site marker (header/per-row).`);
+    }
+    lines.push('');
+  }
+  
+  content.textContent = lines.join('\n');
+  panel.style.display = 'flex';
+};
+
+window.closeDebugPanel = () => {
+  const panel = document.getElementById('debug-panel');
+  if (panel) panel.style.display = 'none';
+};
+
+window.copyDebugInfo = async () => {
+  const content = document.getElementById('debug-content');
+  const status = document.getElementById('debug-copy-status');
+  if (!content) return;
+  try {
+    await navigator.clipboard.writeText(content.textContent);
+    if (status) {
+      status.textContent = '✓ Copied! Sekarang paste ke chat Claude.';
+      setTimeout(() => { if (status) status.textContent = ''; }, 4000);
+    }
+  } catch (e) {
+    if (status) status.textContent = `❌ Gagal: ${e.message} (manual select + Ctrl+C)`;
+  }
+};
+
+window.runDiagnostic = async () => {
+  const sb = document.getElementById('sbar');
+  if (sb) {
+    sb.className = 'sbar info';
+    sb.innerHTML = '<span>Running diagnostic...</span>';
+  }
+  console.log('[diagnose] running...');
+  const results = await diagnose();
+  console.table(results);
+  if (sb) {
+    sb.className = results.every(r => r.ok) ? 'sbar ok' : 'sbar err';
+    const lines = results.map(r =>
+      `<div style="margin-top:4px"><strong>${r.src}</strong> ${r.ok ? '✓' : '✗'} (${r.dur}ms): ${r.msg}</div>`
+    ).join('');
+    sb.innerHTML = `<div style="line-height:1.5;width:100%"><div><strong>Diagnostic result:</strong></div>${lines}</div>`;
+  }
+};
+
+// ===== LOAD ALL =====
+let _loadInFlight = false;
+async function loadAll() {
+  if (_loadInFlight) { console.log('[loadAll] Skipped — already in flight'); return; }
+  _loadInFlight = true;
+  const sb = document.getElementById('sbar');
+  
+  // Validate Sheet IDs configured
+  const missingIds = Object.entries(SHEETS).filter(([k, v]) => !v || v.length < 20 || v.startsWith('PASTE_'));
+  if (missingIds.length > 0) {
+    if (sb) { 
+      sb.className = 'sbar err'; 
+      sb.innerHTML = `<span>⚠ Sheet ID belum di-set: ${missingIds.map(([k]) => k).join(', ')} — edit di config index.html</span>`;
+    }
+    _loadInFlight = false;
+    return;
+  }
+  
+  // Progressive status: show which sources are still loading
+  const status = { bank: '⏳', cf: '⏳', inv: '⏳' };
+  const t0 = Date.now();
+  const updateStatus = () => {
+    if (!sb) return;
+    sb.className = 'sbar info';
+    const dur = ((Date.now() - t0) / 1000).toFixed(1);
+    sb.innerHTML = `<span>Memuat data H-1 · Bank ${status.bank} · Invoice ${status.inv} · Cashflow ${status.cf} · ${dur}s</span>`;
+  };
+  updateStatus();
+  // Tick the duration counter while still loading
+  const tickId = setInterval(updateStatus, 500);
+  
+  const errors = [];
+  
+  // Fetch all 3 sources in parallel; tag completion of each for progressive status
+  const bankPromise = fetchBankFlat()
+    .then(r => { status.bank = '✓'; updateStatus(); return r; })
+    .catch(e => { status.bank = '✗'; updateStatus(); errors.push(`Bank: ${e.message}`); return []; });
+  const cfPromise = fetchCashflow()
+    .then(r => { status.cf = `✓ (${r.length}mo)`; updateStatus(); return r; })
+    .catch(e => { status.cf = '✗'; updateStatus(); errors.push(`Cashflow: ${e.message}`); return []; });
+  const invPromise = fetchInvoice()
+    .then(r => { status.inv = `✓ (${r.ar.length}+${r.ap.length})`; updateStatus(); return r; })
+    .catch(e => { status.inv = '✗'; updateStatus(); errors.push(`Invoice: ${e.message}`); return { ar: [], ap: [], ppn_keluaran: {}, ppn_masukan: {} }; });
+  
+  const [banks, cashflow, invoice] = await Promise.all([bankPromise, cfPromise, invPromise]);
+  clearInterval(tickId);
+  
+  DATA.banks = banks;
+  DATA.cashflow = cashflow;
+  DATA.ar = invoice.ar;
+  DATA.ap = invoice.ap;
+  DATA.ppn_keluaran = invoice.ppn_keluaran;
+  DATA.ppn_masukan = invoice.ppn_masukan;
+  
+  const totalMs = Date.now() - t0;
+  console.log(`[loadAll] Done in ${totalMs}ms · banks=${banks.length}, cashflow=${cashflow.length}mo, AR=${invoice.ar.length}, AP=${invoice.ap.length}, PPN_kel=${Object.keys(invoice.ppn_keluaran).length}mo, PPN_mas=${Object.keys(invoice.ppn_masukan).length}mo · errors: ${errors.length > 0 ? errors.join(' | ') : 'none'}`);
+  
+  // Render with try/catch each so 1 fails doesn't block others
+  const renderErrors = [];
+  for (const [name, fn] of [
+    ['Overview', renderOverview], ['Cashflow', renderCashflow],
+    ['AR', renderAR], ['AP', renderAP],
+    ['Tax', renderTax], ['Bank', renderBank],
+  ]) {
+    try { fn(); }
+    catch (e) { console.error(`Render ${name}:`, e); renderErrors.push(`${name}: ${e.message}`);
+      const tabId = name.toLowerCase();
+      const page = document.getElementById(tabId);
+      if (page) {
+        const cards = page.querySelectorAll('.card');
+        if (cards[0]) cards[0].innerHTML = errCardHTML(name, e, 'window.location.reload');
+      }
+    }
+  }
+  setTimeout(drawSparks, 50);
+  
+  // Force chart resize after initial render — fixes Chart.js Y-axis label cropping
+  // when canvas doesn't have proper dimensions on first paint
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    if (STATE.charts) {
+      Object.values(STATE.charts).forEach(c => {
+        try { c?.resize?.(); c?.update?.('none'); } catch(e) {}
+      });
+    }
+  }));
+  
+  // Update topbar timestamp
+  const ts = document.getElementById('ts');
+  const cutoff = getH1Cutoff();
+  if (ts) ts.textContent = `${APP_VERSION} · Data H-1 per ${cutoff.toLocaleDateString('id-ID', {day:'2-digit', month:'short', year:'numeric'})}`;
+  
+  if (sb) {
+    if (errors.length > 0) {
+      sb.className = 'sbar err';
+      // Identify which Sheet IDs to inspect, with action items
+      const errorMap = errors.map(e => {
+        const m = e.match(/^(Bank|Cashflow|Invoice):\s*(.+)$/);
+        if (!m) return { source: '?', msg: e };
+        const src = m[1].toLowerCase();
+        const idShort = (SHEETS[src] || '').slice(0, 12) + '…';
+        return { source: m[1], idShort, msg: m[2] };
+      });
+      const errLines = errorMap.map(x => 
+        `<div style="margin-top:4px"><strong>${x.source}</strong> (ID ${x.idShort || '-'}): ${x.msg}</div>`
+      ).join('');
+      sb.innerHTML = `<div style="line-height:1.5;width:100%">
+        <div><strong>${errors.length} sumber data error:</strong></div>
+        ${errLines}
+        <div style="margin-top:6px;font-size:14px;opacity:.85">
+          Cek: 1) Sheet di-share "Anyone with link can view" · 2) Sheet ID benar di const SHEETS · 3) Tab name benar (${Object.values(SHEET_NAMES).join(', ')})
+        </div>
+        <button onclick="runDiagnostic()" style="margin-top:8px;padding:6px 14px;background:var(--bg2);border:1px solid var(--terra);color:var(--terra);border-radius:8px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600">↻ Run Diagnostic</button>
+      </div>`;
+    } else if (invoice._stats && invoice.ar.length === 0 && invoice.ap.length === 0 && invoice._stats.totalRows > 0) {
+      // Fetch sukses tapi 0 rows lolos parser — kemungkinan kolom mapping issue
+      sb.className = 'sbar warn';
+      const s = invoice._stats;
+      sb.innerHTML = `<div style="line-height:1.5;width:100%">
+        <div><strong>⚠ Invoice fetched ${s.totalRows} rows tapi 0 valid AR/AP setelah filter</strong></div>
+        <div style="margin-top:4px;font-size:14px">
+          Filter dropped: noReg=${s.noReg} · noArap=${s.noArap} · badArap=${s.badArap} · canceled=${s.canceled}
+        </div>
+        <div style="margin-top:4px;font-size:14px;opacity:.85">
+          Buka Console (F12) → cari log <code>[Invoice]</code> untuk lihat headers detected & sample rows. Reply error ke Claude dengan log itu.
+        </div>
+      </div>`;
+    } else if (invoice._dataQuality && (invoice.ar.length > 0 || invoice.ap.length > 0)) {
+      // Data quality check: kalau >50% rows tidak ada tgl/amount, kemungkinan kolom mismatch
+      const dq = invoice._dataQuality;
+      const arBad = invoice.ar.length > 0 && (dq.arNoDate / invoice.ar.length > 0.5 || dq.arNoAmount / invoice.ar.length > 0.5);
+      const apBad = invoice.ap.length > 0 && (dq.apNoDate / invoice.ap.length > 0.5 || dq.apNoAmount / invoice.ap.length > 0.5);
+      if (arBad || apBad) {
+        sb.className = 'sbar warn';
+        sb.innerHTML = `<div style="line-height:1.5;width:100%">
+          <div><strong>⚠ Invoice loaded ${invoice.ar.length} AR + ${invoice.ap.length} AP, tapi banyak data kosong</strong></div>
+          <div style="margin-top:4px;font-size:14px">
+            AR: ${dq.arNoDate}/${invoice.ar.length} no_tgl, ${dq.arNoAmount}/${invoice.ar.length} no_amount · 
+            AP: ${dq.apNoDate}/${invoice.ap.length} no_tgl, ${dq.apNoAmount}/${invoice.ap.length} no_amount
+          </div>
+          <div style="margin-top:4px;font-size:14px;opacity:.85">
+            Kemungkinan nama kolom TGL INV / NOMINAL / TOTAL beda. Buka Console (F12) → log <code>[Invoice] Resolved column labels</code> tunjukkan kolom yg di-pakai. Reply ke Claude.
+          </div>
+        </div>`;
+      } else if (renderErrors.length > 0) {
+        sb.className = 'sbar warn';
+        sb.innerHTML = `<span>Render warning: ${renderErrors[0]}</span>`;
+      } else {
+        sb.className = 'sbar ok';
+        sb.innerHTML = `<span>Data H-1 (cutoff ${cutoff.toLocaleDateString('id-ID')}): ${banks.length}/6 bank · ${invoice.ar.length} AR · ${invoice.ap.length} AP · ${cashflow.length} bulan cashflow · loaded ${(totalMs/1000).toFixed(1)}s</span>`;
+      }
+    } else if (renderErrors.length > 0) {
+      sb.className = 'sbar warn';
+      sb.innerHTML = `<span>Render warning: ${renderErrors[0]}</span>`;
+    } else {
+      sb.className = 'sbar ok';
+      sb.innerHTML = `<span>Data H-1 (cutoff ${cutoff.toLocaleDateString('id-ID')}): ${banks.length}/6 bank · ${invoice.ar.length} AR · ${invoice.ap.length} AP · ${cashflow.length} bulan cashflow · loaded ${(totalMs/1000).toFixed(1)}s</span>`;
+    }
+  }
+  
+  // Track timing for auto-refresh logic
+  window.lastFetchTime = Date.now();
+  window.lastFetchDate = new Date().toLocaleDateString('en-CA');
+  _loadInFlight = false;
+}
+
+const ID_MONTHS = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+const SHORT_MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Ags','Sep','Okt','Nov','Des'];
+
+const STATE = { charts: {} };
+
+function esc(s) { if (s == null) return ''; return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function rp(n, sh = true) {
+  if (!n || n === 0) return '-';
+  const a = Math.abs(n), pre = n < 0 ? '-' : '';
+  if (sh) {
+    if (a >= 1e12) return pre + 'Rp ' + (a/1e12).toFixed(2).replace('.00','') + 'T';
+    if (a >= 1e9) return pre + 'Rp ' + (a/1e9).toFixed(2).replace('.00','') + 'M';
+    if (a >= 1e6) return pre + 'Rp ' + (a/1e6).toFixed(1).replace('.0','') + 'jt';
+    if (a >= 1e3) return pre + 'Rp ' + (a/1e3).toFixed(0) + 'rb';
+  }
+  return pre + 'Rp ' + a.toLocaleString('id-ID');
+}
+function pctVal(p, t) { return t ? Math.round(p / t * 100) : 0; }
+function fmtDate(s) {
+  if (!s) return '-';
+  const d = new Date(s);
+  if (isNaN(d.getTime())) return '-';
+  return d.toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+const kpi = (lbl, val, cls = '', sub = '', acc = '', mono = false, opts = {}) => {
+  const { spark, drill } = opts;
+  const sparkId = spark ? `sp-${Math.random().toString(36).slice(2, 9)}` : '';
+  const clickAttrs = drill ? `class="kpi click ${acc}" onclick="drillTo('${drill.tab}', ${drill.scroll ? `'${drill.scroll}'` : 'null'})" title="Lihat detail"` : `class="kpi ${acc}"`;
+  return `<div ${clickAttrs}><div class="kl">${lbl}</div><div class="kv ${mono ? 'mono' : ''} ${cls}">${val}</div>${sub ? `<div class="ks">${sub}</div>` : ''}${spark ? `<canvas class="spark" id="${sparkId}" data-spark='${JSON.stringify(spark)}'></canvas>` : ''}</div>`;
+};
+
+// Reusable: count AP rows yang sudah dibayar tapi belum punya tgl bukti potong
+function countBupotPending() {
+  return (DATA.ap || []).filter(r => r.tgl_bayar && !r.tgl_bupot && r.pph_total > 0).length;
+}
+
+// Reusable: invoice masih outstanding kalau belum dibayar & belum dicancel
+// Cek BOTH remark text AND tgl_bayar — robust jika salah satu field kosong
+const isOutstanding = (r) => r.remark !== 'CANCELED' && r.remark !== 'PAID' && !r.tgl_bayar;
+
+// Reusable: build waterfall (segmented bar + legend) for buckets
+// buckets: { label: { count, total } }, palette: { label: cssColor }, total: divisor for pct
+function wfallHTML(buckets, palette, total, options = {}) {
+  const idAttr = options.id ? ` id="${options.id}"` : '';
+  const entries = Object.entries(buckets);
+  const segs = entries.map(([k, v]) => {
+    const pct = (v.total / total) * 100;
+    if (pct < 0.3) return '';
+    const c = palette[k] || 'var(--A)';
+    return `<div class="wfall-seg" style="width:${pct}%;background:${c}" title="${k}: ${rp(v.total)} (${v.count} inv)">${pct >= 8 ? pct.toFixed(0)+'%' : ''}</div>`;
+  }).join('');
+  const rows = entries.map(([k, v]) => {
+    const c = palette[k] || 'var(--A)';
+    return `<div class="wfall-row">
+      <div class="wfall-dot" style="background:${c}"></div>
+      <div class="wfall-lbl">${k}<span class="wfall-cnt">${v.count} inv</span></div>
+      <div class="wfall-pct">${((v.total/total)*100).toFixed(1)}%</div>
+      <div class="wfall-num">${rp(v.total)}</div>
+    </div>`;
+  }).join('');
+  return `<div class="wfall"${idAttr}>
+    <div class="wfall-bar">${segs}</div>
+    <div class="wfall-legend">${rows}</div>
+  </div>`;
+}
+
+function drawSparks() {
+  document.querySelectorAll('canvas.spark').forEach(c => {
+    if (c.dataset.drawn) return;
+    let raw; try { raw = JSON.parse(c.dataset.spark); } catch (e) { return; }
+    const { data, color = 'var(--txt3)' } = raw;
+    if (!data || !data.length) return;
+    const dpr = window.devicePixelRatio || 1;
+    const W = c.offsetWidth || 84, H = c.offsetHeight || 28;
+    c.width = W * dpr; c.height = H * dpr;
+    const ctx = c.getContext('2d'); ctx.scale(dpr, dpr);
+    const min = Math.min(...data), max = Math.max(...data);
+    const range = max - min || 1, pad = 2;
+    const w = W - pad * 2, h = H - pad * 2;
+    const accColor = getComputedStyle(c.closest('.kpi') || c).getPropertyValue('--acc').trim() || getComputedStyle(c).getPropertyValue(color.replace('var(','').replace(')','')).trim() || '#888';
+    // Area fill
+    ctx.beginPath();
+    data.forEach((v, i) => {
+      const x = pad + (i / (data.length - 1 || 1)) * w;
+      const y = pad + h - ((v - min) / range) * h;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    const lastX = pad + w;
+    ctx.lineTo(lastX, pad + h); ctx.lineTo(pad, pad + h); ctx.closePath();
+    ctx.fillStyle = accColor + '22'; ctx.fill();
+    // Line
+    ctx.beginPath();
+    data.forEach((v, i) => {
+      const x = pad + (i / (data.length - 1 || 1)) * w;
+      const y = pad + h - ((v - min) / range) * h;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.strokeStyle = accColor; ctx.lineWidth = 1.6; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.stroke();
+    // End dot
+    const lastY = pad + h - ((data[data.length-1] - min) / range) * h;
+    ctx.beginPath(); ctx.arc(lastX, lastY, 2.2, 0, Math.PI * 2); ctx.fillStyle = accColor; ctx.fill();
+    c.dataset.drawn = '1';
+  });
+}
+
+function drillTo(tab, scrollId) {
+  const btn = document.querySelector(`.nav-btn[onclick*="'${tab}'"]`);
+  if (btn) btn.click();
+  if (scrollId) setTimeout(() => {
+    const el = document.getElementById(scrollId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.style.transition = 'box-shadow .4s';
+      el.style.boxShadow = '0 0 0 3px var(--must, #b8860b)';
+      setTimeout(() => { el.style.boxShadow = ''; }, 1400);
+    }
+  }, 80);
+}
+
+function errCardHTML(name, err, retryFn) {
+  const onclick = retryFn ? `onclick="${retryFn}()"` : '';
+  return `<div class="err-card"><svg class="err-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01" stroke-linecap="round"/></svg><div class="err-msg">Gagal memuat ${name}</div><div class="err-sub">${(err.message || err).toString().slice(0, 140)}</div>${retryFn ? `<button class="err-retry" ${onclick}>↻ Coba lagi</button>` : ''}</div>`;
+}
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  btn.classList.add('active');
+  // Re-render active tab to refresh charts cleanly
+  const renderMap = { overview: 'renderOverview', cashflow: 'renderCashflow', ar: 'renderAR', ap: 'renderAP', tax: 'renderTax', bank: 'renderBank' };
+  const fnName = renderMap[id];
+  if (fnName && typeof window[fnName] === 'function' && DATA && DATA.banks) {
+    try { window[fnName](); setTimeout(drawSparks, 30); } catch(e) { console.error(e); }
+  }
+}
+
+function destroyChart(k) { if (STATE.charts[k]) { STATE.charts[k].destroy(); delete STATE.charts[k]; } }
+
+// ================ RENDER OVERVIEW ================
+function renderOverview() {
+  const banks = DATA.banks || [];
+  const cf = DATA.cashflow || [];
+  const ar = (DATA.ar || []).filter(isOutstanding);
+  const ap = (DATA.ap || []).filter(isOutstanding);
+  const current = cf[cf.length - 1];
+  
+  const saldoIDR = banks.filter(b => b.currency === 'IDR').reduce((s, b) => s + (b.balance || 0), 0);
+  const saldoUSD = banks.filter(b => b.currency === 'USD').reduce((s, b) => s + (b.balance || 0), 0);
+  const totalAR = ar.reduce((s, r) => s + (r.amount || 0), 0);
+  const totalAP = ap.reduce((s, r) => s + (r.amount || 0), 0);
+  
+  // PPN position
+  const k = DATA.ppn_keluaran || {};
+  const m = DATA.ppn_masukan || {};
+  const allMonths = Array.from(new Set([...Object.keys(k), ...Object.keys(m)])).sort();
+  const lastMonth = allMonths[allMonths.length - 1];
+  const ppnNet = lastMonth ? (k[lastMonth] || 0) - (m[lastMonth] || 0) : 0;
+  
+  const cfTrend = cf.slice(-6);
+  const sparkSaldo = cfTrend.map(m => m.saldo_kas_akhir || 0);
+  const sparkPPN = (DATA.ppn_keluaran && Object.keys(DATA.ppn_keluaran).length) ? Object.keys(DATA.ppn_keluaran).sort().slice(-6).map(k => Math.abs((DATA.ppn_keluaran[k]||0) - (DATA.ppn_masukan?.[k]||0))) : null;
+
+  document.getElementById('kpi-overview').innerHTML = [
+    kpi('Saldo Kas IDR', rp(saldoIDR), 'cGold', `${banks.filter(b => b.currency === 'IDR').length} rekening - USD ${saldoUSD.toLocaleString('en-US', {maximumFractionDigits:2})}`, 'aGold', false, { drill: { tab: 'bank' }, spark: sparkSaldo.length ? { data: sparkSaldo } : null }),
+    kpi('Outstanding AR', rp(totalAR), 'cB', `${ar.length} invoice belum dibayar`, 'aB', false, { drill: { tab: 'ar', scroll: 'ar-aging' } }),
+    kpi('Outstanding AP', rp(totalAP), 'cR', `${ap.filter(r => r.status_dd === 'Lewat Jatuh Tempo').length} lewat jatuh tempo`, 'aR', false, { drill: { tab: 'ap', scroll: 'ap-aging' } }),
+    kpi('PPN posisi', lastMonth ? rp(Math.abs(ppnNet)) : '-', ppnNet > 0 ? 'cR' : 'cG', lastMonth ? `${ppnNet > 0 ? 'Kurang' : 'Lebih'} bayar - ${lastMonth}` : '', 'aA', false, { drill: { tab: 'tax' }, spark: sparkPPN ? { data: sparkPPN } : null }),
+  ].join('');
+  
+  if (current) {
+    document.getElementById('overview-period').textContent = `Period: ${ID_MONTHS[current.month - 1]} ${current.year}`;
+    document.getElementById('overview-period-bdg').textContent = `${SHORT_MONTHS[current.month - 1]} ${current.year}`;
+  }
+  
+  // Sites bars
+  const sites = SITES_LIST;
+  const colors = SITE_COLORS_CSS;
+  let html = '';
+  if (current) {
+    const max = Math.max(...sites.map(s => Math.max(current.site_budget[s] || 0, current.site_realisasi[s] || 0)), 1);
+    sites.forEach(s => {
+      const r = current.site_realisasi[s] || 0;
+      const b = current.site_budget[s] || 0;
+      const v = b ? pctVal(r - b, b) : 0;
+      html += `
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+            <span style="font-size: 17px;font-weight:600">${s}</span>
+            <span style="font-size: 15px;color:var(--txt2)">Budget: ${rp(b)}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+            <div class="btrack" style="height:8px"><div class="bfill" style="width:${Math.min(100, (r / max) * 100)}%;background:${colors[s]}"></div></div>
+            <span class="bnum" style="min-width:90px;color:${colors[s]}">${rp(r)}</span>
+          </div>
+          <div style="font-size: 14.5px;color:${v > 0 ? 'var(--R)' : 'var(--G)'}">${v > 0 ? '▲ +' : '▼ '}${v}% ${v > 0 ? 'lebih' : 'hemat'} dari budget</div>
+        </div>
+      `;
+    });
+  }
+  document.getElementById('overview-sites').innerHTML = html;
+  
+  // Alerts
+  const alerts = computeAlerts(ar, ap, current);
+  document.getElementById('overview-alerts').innerHTML = alerts.length > 0
+    ? alerts.map(a => `
+      <div class="alert ${a.type}">
+        <svg class="al-icon" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="5" width="2" height="6" rx="1"/><circle cx="10" cy="14" r="1"/></svg>
+        <div class="al-body"><div class="al-ttl">${a.title}</div><div class="al-desc">${a.desc}</div></div>
+      </div>
+    `).join('')
+    : '<div class="empty">Tidak ada alert kritis saat ini</div>';
+  
+  drawSiteCashinOutChart('chart-ov-cashflow', cf, 'legend-ov-cashflow');
+}
+
+function computeAlerts(ar, ap, currentCF) {
+  const alerts = [];
+  const today = new Date();
+  
+  let arOver90 = 0, arOver90Count = 0;
+  for (const r of ar) {
+    if (r.tgl_inv) {
+      const days = (today - new Date(r.tgl_inv)) / 86400000;
+      if (days > 90) { arOver90 += r.amount || 0; arOver90Count++; }
+    }
+  }
+  if (arOver90 > 1e8) alerts.push({ type: 'danger', title: `AR > 90 hari: ${rp(arOver90)} (${arOver90Count} invoice)`, desc: 'Risiko bad debt - perlu collection escalation' });
+  
+  const apOverdue = ap.filter(r => r.status_dd === 'Lewat Jatuh Tempo');
+  const apOverdueTotal = apOverdue.reduce((s, r) => s + (r.amount || 0), 0);
+  if (apOverdueTotal > 1e9) alerts.push({ type: 'danger', title: `AP lewat jatuh tempo: ${rp(apOverdueTotal)} (${apOverdue.length} invoice)`, desc: 'Perlu pembayaran segera' });
+  
+  if (currentCF) {
+    SITES_LIST.forEach(s => {
+      const r = currentCF.site_realisasi[s] || 0;
+      const b = currentCF.site_budget[s] || 0;
+      if (b > 0 && r > b * 1.5) alerts.push({ type: 'warn', title: `${s} overrun budget: +${pctVal(r - b, b)}%`, desc: `Realisasi ${rp(r)} vs budget ${rp(b)}` });
+    });
+  }
+  return alerts;
+}
+
+// ================ RENDER CASHFLOW ================
+function renderCashflow() {
+  const cf = DATA.cashflow || [];
+  if (cf.length === 0) {
+    const el = document.getElementById('kpi-cashflow');
+    if (el) el.innerHTML = '<div class="empty" style="grid-column:1/-1;padding:32px">Belum ada data cashflow untuk periode ini</div>';
+    return;
+  }
+  const current = cf[cf.length - 1];
+  if (!current) return;
+  
+  document.getElementById('cf-period').textContent = `Period: ${ID_MONTHS[current.month - 1]} ${current.year}`;
+  
+  // All sites always shown (no filter)
+  const siteList = SITES_LIST;
+  const totalR = siteList.reduce((s,k) => s + (current.site_realisasi[k] || 0), 0);
+  const totalB = siteList.reduce((s,k) => s + (current.site_budget[k] || 0), 0);
+  const v = totalB ? pctVal(totalR - totalB, totalB) : 0;
+  
+  // Saldo Kas Akhir: ambil langsung dari sheet cashflow (source of truth)
+  let periodAkhir = current.saldo_kas_akhir || 0;
+  let periodAwal = current.saldo_kas_awal || 0;
+  if (periodAwal === 0 && cf.length >= 2) {
+    periodAwal = cf[cf.length - 2].saldo_kas_akhir || 0;
+  }
+  const dailyChange = periodAkhir - periodAwal;
+  const reconcileSub = periodAwal !== 0
+    ? `Kemarin: ${rp(periodAwal)} (${dailyChange >= 0 ? '+' : ''}${rp(dailyChange)})`
+    : `Per ${ID_MONTHS[current.month - 1]} ${current.year}`;
+  
+  const sparkR = cf.slice(-6).map(m => siteList.reduce((s,k) => s + (m.site_realisasi?.[k] || 0), 0));
+  const sparkSk = cf.slice(-6).map(m => m.saldo_kas_akhir || 0);
+  const sparkV = cf.slice(-6).map(m => {
+    const r = siteList.reduce((s,k) => s + (m.site_realisasi?.[k] || 0), 0);
+    const b = siteList.reduce((s,k) => s + (m.site_budget?.[k] || 0), 0);
+    return b ? pctVal(r-b,b) : 0;
+  });
+
+  document.getElementById('kpi-cashflow').innerHTML = [
+    kpi('Realisasi', rp(totalR), 'cT', `Budget: ${rp(totalB)}`, 'aT', false, { spark: { data: sparkR } }),
+    kpi('Variance', `${v > 0 ? '+' : ''}${v}%`, v > 0 ? 'cR' : 'cG', v > 0 ? 'Lebih dari budget' : 'Hemat dari budget', v > 0 ? 'aR' : 'aG', false, { spark: { data: sparkV } }),
+    kpi('Saldo Kas Akhir', rp(periodAkhir), 'cGold', reconcileSub, 'aGold', false, { spark: { data: sparkSk }, drill: { tab: 'bank' } }),
+  ].join('');
+
+  // Ensure site card containers exist (dynamic — created on first render if missing)
+  const siteCardsContainer = document.getElementById('cf-site-BKM')?.parentElement;
+  if (siteCardsContainer) {
+    SITES_LIST.forEach(s => {
+      if (!document.getElementById(`cf-site-${s}`)) {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.id = `cf-site-${s}`;
+        siteCardsContainer.appendChild(div);
+      }
+    });
+    SITES_LIST.forEach(k => {
+      const card = document.getElementById(`cf-site-${k}`);
+      if (card) card.style.display = '';
+    });
+    siteCardsContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+  }
+  
+  SITES_LIST.forEach(s => {
+    const r = current.site_realisasi[s] || 0;
+    const b = current.site_budget[s] || 0;
+    const pin = current.site_penerimaan?.[s] || 0;
+    const pinB = current.site_penerimaan_budget?.[s] || 0;
+    const vv = b ? pctVal(r - b, b) : 0;
+    const detail = (current.site_detail[s] || []).sort((a,b) => Math.abs(b.realisasi) - Math.abs(a.realisasi)).slice(0, 8);
+    const rows = detail.map(d => `
+      <tr>
+        <td title="${d.account}">${d.account}</td>
+        <td class="r">${rp(d.budget)}</td>
+        <td class="r" style="${d.realisasi > d.budget * 1.2 && d.budget > 0 ? 'color:var(--R)' : ''}">${rp(d.realisasi)}</td>
+      </tr>
+    `).join('');
+    
+    const card = document.getElementById(`cf-site-${s}`);
+    if (!card) return;
+    card.innerHTML = `
+      <div class="ch"><span class="ct mono" style="font-size: 20px;font-weight:600">${s}</span><span class="badge ${vv > 0 ? 'bR' : 'bG'}">${vv > 0 ? '+' : ''}${vv}%</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--bdr)">
+        <div style="padding:14px 16px;border-right:1px solid var(--bdr)">
+          <div style="font-size: 13px;color:var(--txt2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Cashin</div>
+          <div style="font-size: 22px;font-weight:700;font-family:'Manrope',sans-serif;letter-spacing:-.03em;color:var(--G)">${rp(pin)}</div>
+          <div style="font-size: 13px;color:var(--txt3);margin-top:2px">${pinB > 0 ? `Budget: ${rp(pinB)}` : '\u00A0'}</div>
+        </div>
+        <div style="padding:14px 16px">
+          <div style="font-size: 13px;color:var(--txt2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Cashout</div>
+          <div style="font-size: 22px;font-weight:700;font-family:'Manrope',sans-serif;letter-spacing:-.03em;color:${vv > 0 ? 'var(--R)' : 'var(--txt)'}">${rp(r)}</div>
+          <div style="font-size: 13px;color:var(--txt3);margin-top:2px">Budget: ${rp(b)}</div>
+        </div>
+      </div>
+      <div class="tw cf-compact">
+        <table>
+          <colgroup><col class="cat"><col class="num"><col class="num"></colgroup>
+          <thead><tr><th>Kategori Pengeluaran</th><th class="r">Budget</th><th class="r">Realisasi</th></tr></thead>
+          <tbody>${rows || '<tr><td colspan="3" class="empty">Tidak ada data</td></tr>'}</tbody>
+        </table>
+      </div>
+    `;
+  });
+  
+  drawCFTrendChart('chart-cf-trend', cf, 'legend-cf-trend');
+  drawSiteCashinOutChart('chart-cf-cashflow', cf, 'legend-cf-cashflow');
+}
+
+// ================ RENDER AR ================
+function titleCase(s) {
+  if (!s) return '';
+  return String(s).toLowerCase().replace(/(^|[\s\-\(\.\/&,])([a-z])/g, (m,p,c) => p + c.toUpperCase())
+    .replace(/\b(pt|cv|ud|tbk|persero|sa|nv|llc|ltd|inc)\b/gi, m => m.toUpperCase());
+}
+function renderAR() {
+  const ar = (DATA.ar || []).filter(isOutstanding);
+  const today = new Date();
+  
+  const aging = {
+    'Belum Jatuh Tempo': { count: 0, total: 0, color: 'var(--T)' },
+    '0-30 hari': { count: 0, total: 0, color: 'var(--G)' },
+    '31-60 hari': { count: 0, total: 0, color: 'var(--A)' },
+    '61-90 hari': { count: 0, total: 0, color: 'var(--A)' },
+    '>90 hari': { count: 0, total: 0, color: 'var(--R)' },
+  };
+  ar.forEach(r => {
+    if (!r.tgl_inv) return;
+    const days = Math.floor((today - new Date(r.tgl_inv)) / 86400000);
+    let bucket = days < 0 ? 'Belum Jatuh Tempo' : days <= 30 ? '0-30 hari' : days <= 60 ? '31-60 hari' : days <= 90 ? '61-90 hari' : '>90 hari';
+    aging[bucket].count++;
+    aging[bucket].total += r.amount || 0;
+  });
+  
+  const total = ar.reduce((s, r) => s + (r.amount || 0), 0);
+  const over90 = aging['>90 hari'].total;
+  
+  document.getElementById('kpi-ar').innerHTML = [
+    kpi('Total Outstanding', rp(total), 'cB', `${ar.length} invoice`, 'aB'),
+    kpi('AR > 90 hari', rp(over90), 'cR', `${aging['>90 hari'].count} invoice (${pctVal(over90, total)}%)`, 'aR'),
+    kpi('AR < 30 hari', rp(aging['0-30 hari'].total), 'cG', `${aging['0-30 hari'].count} invoice`, 'aG'),
+    kpi('Avg Outstanding', rp(ar.length ? total / ar.length : 0), 'cT', 'Per invoice', 'aT'),
+  ].join('');
+  
+  const max = Math.max(...Object.values(aging).map(a => a.total), 1);
+  const totalAging = Object.values(aging).reduce((s,a) => s + a.total, 0) || 1;
+  const palette = { 'Belum Jatuh Tempo': 'var(--T)', '0-30 hari': 'var(--G)', '31-60 hari': 'var(--A)', '61-90 hari': 'var(--must)', '>90 hari': 'var(--R)' };
+  document.getElementById('ar-aging').innerHTML = wfallHTML(aging, palette, totalAging);
+  
+  const byCo = {};
+  ar.forEach(r => {
+    const co = r.company || 'UNKNOWN';
+    if (!byCo[co]) byCo[co] = { count: 0, total: 0 };
+    byCo[co].count++; byCo[co].total += r.amount || 0;
+  });
+  const top = Object.entries(byCo).sort((a, b) => b[1].total - a[1].total).slice(0, 10);
+  document.getElementById('tbl-ar-top').innerHTML = `
+    <thead><tr><th>Customer</th><th class="r">Total</th><th class="c">Inv</th></tr></thead>
+    <tbody>${top.map(([co, d]) => `<tr><td>${esc(titleCase(co))}</td><td class="r">${rp(d.total)}</td><td class="c muted">${d.count}</td></tr>`).join('')}</tbody>
+  `;
+  
+  const sorted = ar.slice().sort((a, b) => {
+    const da = a.tgl_inv ? today - new Date(a.tgl_inv) : 0;
+    const db = b.tgl_inv ? today - new Date(b.tgl_inv) : 0;
+    return db - da;
+  });
+  
+  document.getElementById('ar-list-info').textContent = `${ar.length} invoice`;
+  document.getElementById('tbl-ar-list').innerHTML = `
+    <thead><tr><th>Register</th><th>Customer</th><th>Tgl Inv</th><th class="c">Hari</th><th class="r">Amount</th></tr></thead>
+    <tbody>${sorted.map(r => {
+      const days = r.tgl_inv ? Math.floor((today - new Date(r.tgl_inv)) / 86400000) : 0;
+      const cls = days > 90 ? 'pR' : days > 30 ? 'pA' : 'pG';
+      return `<tr><td style="font-size: 14.5px;color:var(--txt2)">${r.register}</td><td>${titleCase(r.company) || '-'}</td><td class="muted">${fmtDate(r.tgl_inv)}</td><td class="c"><span class="pill ${cls}">${days}h</span></td><td class="r">${rp(r.amount)}</td></tr>`;
+    }).join('')}</tbody>
+  `;
+}
+
+// ================ RENDER AP ================
+function renderAP() {
+  const ap = (DATA.ap || []).filter(isOutstanding);
+  
+  const byStatus = {
+    'Belum Jatuh Tempo': { count: 0, total: 0, color: 'var(--G)' },
+    'Lewat Jatuh Tempo': { count: 0, total: 0, color: 'var(--R)' },
+  };
+  ap.forEach(r => {
+    const s = r.status_dd || 'Belum Jatuh Tempo';
+    if (!byStatus[s]) byStatus[s] = { count: 0, total: 0, color: 'var(--A)' };
+    byStatus[s].count++; byStatus[s].total += r.amount || 0;
+  });
+  
+  const total = ap.reduce((s, r) => s + (r.amount || 0), 0);
+  const overdueTotal = byStatus['Lewat Jatuh Tempo'].total;
+  const overdueCount = byStatus['Lewat Jatuh Tempo'].count;
+  const paidNoBupot = countBupotPending();
+  
+  document.getElementById('kpi-ap').innerHTML = [
+    kpi('Total Outstanding', rp(total), 'cR', `${ap.length} invoice`, 'aR', false, { drill: { tab: 'ap', scroll: 'ap-aging' } }),
+    kpi('Lewat Jatuh Tempo', rp(overdueTotal), 'cR', `${overdueCount} invoice (${pctVal(overdueTotal, total)}%)`, 'aR', false, { drill: { tab: 'ap', scroll: 'tbl-ap-overdue' } }),
+    kpi('Belum Jatuh Tempo', rp(byStatus['Belum Jatuh Tempo'].total), 'cG', `${byStatus['Belum Jatuh Tempo'].count} invoice`, 'aG'),
+    kpi('Bupot Pending', `${paidNoBupot}`, 'cA', 'Bayar tanpa tgl bukti potong', 'aA'),
+  ].join('');
+  
+  const totalAP = Object.values(byStatus).reduce((s,v) => s + v.total, 0) || 1;
+  const apPalette = { 'Belum Jatuh Tempo': 'var(--G)', 'Lewat Jatuh Tempo': 'var(--R)' };
+  document.getElementById('ap-status').innerHTML = wfallHTML(byStatus, apPalette, totalAP, { id: 'ap-aging' });
+  
+  const byVendor = {};
+  ap.forEach(r => {
+    const v = r.vendor || 'UNKNOWN';
+    if (!byVendor[v]) byVendor[v] = { count: 0, total: 0 };
+    byVendor[v].count++; byVendor[v].total += r.amount || 0;
+  });
+  const topV = Object.entries(byVendor).sort((a, b) => b[1].total - a[1].total).slice(0, 10);
+  document.getElementById('tbl-ap-top').innerHTML = `
+    <thead><tr><th>Vendor</th><th class="r">Total</th><th class="c">Inv</th></tr></thead>
+    <tbody>${topV.map(([v, d]) => `<tr><td>${v}</td><td class="r">${rp(d.total)}</td><td class="c muted">${d.count}</td></tr>`).join('')}</tbody>
+  `;
+  
+  const bySite = {};
+  ap.forEach(r => {
+    const s = r.site && r.site !== '' ? r.site : 'Tidak Ditentukan';
+    if (!bySite[s]) bySite[s] = { count: 0, total: 0 };
+    bySite[s].count++; bySite[s].total += r.amount || 0;
+  });
+  const sortedSites = Object.entries(bySite).sort((a,b) => b[1].total - a[1].total);
+  const maxS = Math.max(...sortedSites.map(([_,v]) => v.total), 1);
+  document.getElementById('ap-sites').innerHTML = sortedSites.map(([s, v]) => `
+    <div class="br">
+      <div class="blab">${s}</div>
+      <div class="btrack"><div class="bfill" style="width:${(v.total / maxS) * 100}%;background:var(--P)"></div></div>
+      <div class="bnum">${rp(v.total)}</div>
+    </div>
+  `).join('');
+  
+  const overdue = ap.filter(r => r.status_dd === 'Lewat Jatuh Tempo').sort((a, b) => (b.overdue_days || 0) - (a.overdue_days || 0));
+  document.getElementById('ap-overdue-info').textContent = `${overdueCount} invoice overdue`;
+  document.getElementById('tbl-ap-overdue').innerHTML = `
+    <thead><tr><th>Register</th><th>Vendor</th><th>Site</th><th>Tgl Inv</th><th class="c">Lewat (hari)</th><th class="r">Amount</th></tr></thead>
+    <tbody>${overdue.map(r => `<tr><td style="font-size: 14.5px;color:var(--txt2)">${r.register}</td><td>${esc(r.vendor || '-')}</td><td class="muted">${esc(r.site || '-')}</td><td class="muted">${fmtDate(r.tgl_inv)}</td><td class="c"><span class="pill pR">${r.overdue_days || 0}h</span></td><td class="r">${rp(r.amount)}</td></tr>`).join('')}</tbody>
+  `;
+}
+
+// ================ RENDER TAX ================
+function renderTax() {
+  const k = DATA.ppn_keluaran || {};
+  const m = DATA.ppn_masukan || {};
+  const allMonths = Array.from(new Set([...Object.keys(k), ...Object.keys(m)])).sort();
+  const last12 = allMonths.slice(-12);
+  const trend = last12.map(mn => ({ month: mn, keluaran: k[mn] || 0, masukan: m[mn] || 0, net: (k[mn] || 0) - (m[mn] || 0) }));
+  const last = trend[trend.length - 1];
+  
+  const totalK = trend.reduce((s, t) => s + t.keluaran, 0);
+  const totalM = trend.reduce((s, t) => s + t.masukan, 0);
+  const totalN = totalK - totalM;
+  const paidNoBupot = countBupotPending();
+  
+  document.getElementById('kpi-tax').innerHTML = [
+    kpi('PPN Keluaran (12mo)', rp(totalK), 'cT', `${Object.keys(k).length} bulan`, 'aT'),
+    kpi('PPN Masukan (12mo)', rp(totalM), 'cP', `${Object.keys(m).length} bulan`, 'aP'),
+    kpi('Net Position', rp(Math.abs(totalN)), totalN > 0 ? 'cR' : 'cG', totalN > 0 ? 'Total Kurang Bayar' : 'Total Lebih Bayar', totalN > 0 ? 'aR' : 'aG'),
+    kpi('Bupot Pending', `${paidNoBupot}`, 'cA', 'Bayar tanpa tgl bukti potong', 'aA'),
+  ].join('');
+  
+  drawPPNChart('chart-ppn', trend, 'legend-ppn');
+  
+  document.getElementById('tbl-ppn').innerHTML = `
+    <thead><tr><th>Bulan</th><th class="r">Keluaran</th><th class="r">Masukan</th><th class="r">Net</th><th class="c">Status</th></tr></thead>
+    <tbody>${trend.slice().reverse().map(t => `
+      <tr><td>${t.month}</td><td class="r">${rp(t.keluaran)}</td><td class="r">${rp(t.masukan)}</td><td class="r" style="color:${t.net > 0 ? 'var(--R)' : 'var(--G)'}">${rp(Math.abs(t.net))}</td><td class="c"><span class="pill ${t.net > 0 ? 'pR' : 'pG'}">${t.net > 0 ? 'Kurang' : 'Lebih'}</span></td></tr>
+    `).join('')}</tbody>
+  `;
+  
+  const flags = [];
+  if (paidNoBupot > 0) flags.push({ type: 'danger', title: `${paidNoBupot} invoice belum bukti potong`, desc: 'Sudah dibayar dengan PPh tapi tgl bupot kosong' });
+  if (totalN > 0) flags.push({ type: 'warn', title: `Total kurang bayar PPN: ${rp(totalN)}`, desc: 'Konsisten kurang bayar - perlu review' });
+  if (last && last.net > 0) flags.push({ type: 'info', title: `Bulan ${last.month}: Kurang bayar ${rp(last.net)}`, desc: 'Setor sebelum tanggal 20 bulan berikutnya' });
+  
+  document.getElementById('tax-flags').innerHTML = flags.length > 0
+    ? flags.map(f => `
+      <div class="alert ${f.type}">
+        <svg class="al-icon" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="5" width="2" height="6" rx="1"/><circle cx="10" cy="14" r="1"/></svg>
+        <div class="al-body"><div class="al-ttl">${f.title}</div><div class="al-desc">${f.desc}</div></div>
+      </div>
+    `).join('')
+    : '<div class="empty">Tidak ada flag</div>';
+}
+
+// ================ RENDER BANK ================
+function renderBank() {
+  const banks = DATA.banks || [];
+  const totalIDR = banks.filter(b => b.currency === 'IDR').reduce((s, b) => s + (b.balance || 0), 0);
+  const totalUSD = banks.filter(b => b.currency === 'USD').reduce((s, b) => s + (b.balance || 0), 0);
+  
+  document.getElementById('kpi-bank').innerHTML = [
+    kpi('Total Saldo IDR', rp(totalIDR), 'cGold', `${banks.filter(b => b.currency === 'IDR').length} rekening`, 'aGold'),
+    kpi('Total Saldo USD', `USD ${totalUSD.toLocaleString('en-US', { maximumFractionDigits: 2 })}`, 'cT', `${banks.filter(b => b.currency === 'USD').length} rekening`, 'aT', true),
+    kpi('Total rekening', `${banks.length}`, 'cG', 'Rekening aktif', 'aG'),
+  ].join('');
+  
+  document.getElementById('bank-info').textContent = `Saldo terkini`;
+  document.getElementById('bank-list').innerHTML = banks.map(b => {
+    const bal = b.currency === 'USD'
+      ? 'USD ' + (b.balance || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+      : rp(b.balance || 0, false);
+    const histCount = (b.history || []).length;
+    return `
+      <div class="bank-row">
+        <div class="bank-icon">${b.short}</div>
+        <div class="bank-info">
+          <div class="bank-name">${esc(b.name)}</div>
+          <div class="bank-sub">${b.tx_count || 0} transaksi · ${histCount} bulan history · Last: ${fmtDate(b.last_date)}</div>
+        </div>
+        <div class="bank-bal">${bal}</div>
+        <div class="bank-cur">${b.currency}</div>
+      </div>
+    `;
+  }).join('');
+  
+  drawBankTrendChart('chart-bank-trend', banks, 'legend-bank-trend');
+}
+
+// Trend Cashin & Cashout per Site — combo chart
+// Bar = Cashout (4 sites grouped per month, same color per site)
+// Line = Cashin (4 sites overlaid as lines, same color per site)
+function drawSiteCashinOutChart(canvasId, cf, legendId) {
+  destroyChart(canvasId);
+  const last6 = cf.slice(-6);
+  const labels = last6.map(c => `${SHORT_MONTHS[c.month - 1]} ${String(c.year).slice(2)}`);
+  
+  const datasets = [];
+  // Cashout: 1 bar per site (rendered first, behind lines)
+  SITES_LIST.forEach(s => {
+    const color = SITE_COLORS_HEX[s] || '#999';
+    datasets.push({
+      type: 'bar',
+      label: `${s} Out`,
+      data: last6.map(c => Math.round((c.site_realisasi?.[s] || 0) / 1e6)),
+      backgroundColor: color + 'cc', // 80% opacity so lines pop
+      borderRadius: 4,
+      order: 2,
+      yAxisID: 'y',
+    });
+  });
+  // Cashin: 1 line per site (thick, on top of bars)
+  SITES_LIST.forEach(s => {
+    const color = SITE_COLORS_HEX[s] || '#999';
+    datasets.push({
+      type: 'line',
+      label: `${s} In`,
+      data: last6.map(c => Math.round((c.site_penerimaan?.[s] || 0) / 1e6)),
+      borderColor: color,
+      backgroundColor: 'transparent',
+      borderWidth: 3,
+      tension: 0.3,
+      pointRadius: 5,
+      pointBackgroundColor: color,
+      pointBorderColor: '#fff',
+      pointBorderWidth: 1.5,
+      order: 1,
+      yAxisID: 'y',
+    });
+  });
+  
+  // Debug log so user can verify in console
+  console.log(`[Chart] ${canvasId}: ${datasets.length} datasets (4 bars + 4 lines)`);
+  console.log(`[Chart] Cashin per site (lines):`, SITES_LIST.map(s => 
+    `${s}=[${last6.map(c => Math.round((c.site_penerimaan?.[s] || 0) / 1e6)).join(',')}]`).join(' '));
+  
+  if (legendId) {
+    const siteSwatches = SITES_LIST.map(s =>
+      `<span><i style="background:${SITE_COLORS_HEX[s] || '#999'}"></i>${s}</span>`).join('');
+    const styleHint = `<span style="margin-left:14px;opacity:.75"><i style="background:var(--txt2);height:8px;margin-top:3px"></i>bar = Cashout</span><span style="opacity:.75"><i style="background:transparent;border-top:3px solid var(--txt2);height:0;margin-top:6px"></i>line = Cashin</span>`;
+    document.getElementById(legendId).innerHTML = siteSwatches + styleHint;
+  }
+  
+  STATE.charts[canvasId] = new Chart(document.getElementById(canvasId), {
+    type: 'bar',
+    data: { labels, datasets },
+    options: chartOpts((v) => `Rp ${fmtCompactM(v)}`)
+  });
+}
+
+function drawCFTrendChart(canvasId, cf, legendId) {
+  destroyChart(canvasId);
+  const last6 = cf.slice(-6);
+  const labels = last6.map(c => `${SHORT_MONTHS[c.month - 1]} ${String(c.year).slice(2)}`);
+  const realData = last6.map(c => Math.round(SITES_LIST.reduce((s, k) => s + (c.site_realisasi[k] || 0), 0) / 1e6));
+  const budgetData = last6.map(c => Math.round(SITES_LIST.reduce((s, k) => s + (c.site_budget[k] || 0), 0) / 1e6));
+  if (legendId) {
+    document.getElementById(legendId).innerHTML = `<span><i style="background:#c9a961"></i>Realisasi</span><span><i style="background:#60a5fa"></i>Budget</span>`;
+  }
+  STATE.charts[canvasId] = new Chart(document.getElementById(canvasId), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Realisasi', data: realData, borderColor: '#c9a961', backgroundColor: 'rgba(201,169,97,.1)', borderWidth: 2.5, tension: 0.35, pointRadius: 4, pointBackgroundColor: '#c9a961', fill: true },
+        { label: 'Budget', data: budgetData, borderColor: '#60a5fa', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 4], tension: 0.35, pointRadius: 3, pointBackgroundColor: '#60a5fa' }
+      ]
+    },
+    options: chartOpts((v) => `Rp ${fmtCompactM(v)}`)
+  });
+}
+
+function drawPPNChart(canvasId, trend, legendId) {
+  destroyChart(canvasId);
+  const labels = trend.map(t => t.month.slice(2));
+  if (legendId) {
+    document.getElementById(legendId).innerHTML = `<span><i style="background:#22d3ee"></i>Keluaran</span><span><i style="background:#a78bfa"></i>Masukan</span><span><i style="background:#f87171"></i>Net</span>`;
+  }
+  STATE.charts[canvasId] = new Chart(document.getElementById(canvasId), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Keluaran', data: trend.map(t => Math.round(t.keluaran / 1e6)), borderColor: '#22d3ee', backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#22d3ee' },
+        { label: 'Masukan', data: trend.map(t => Math.round(t.masukan / 1e6)), borderColor: '#a78bfa', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5, 4], tension: 0.3, pointRadius: 3, pointBackgroundColor: '#a78bfa' },
+        { label: 'Net', data: trend.map(t => Math.round(t.net / 1e6)), borderColor: '#f87171', backgroundColor: 'rgba(248,113,113,.05)', borderWidth: 1.5, borderDash: [2, 3], tension: 0.3, pointRadius: 2, pointBackgroundColor: '#f87171', fill: true }
+      ]
+    },
+    options: chartOpts((v) => `Rp ${fmtCompactM(v)}`)
+  });
+}
+
+function drawBankTrendChart(canvasId, banks, legendId) {
+  destroyChart(canvasId);
+  const idrBanks = banks.filter(b => b.currency === 'IDR' && b.history && b.history.length > 0);
+  if (idrBanks.length === 0) return;
+  
+  const monthSet = new Set();
+  idrBanks.forEach(b => b.history.forEach(h => monthSet.add(`${h.year}-${String(h.month).padStart(2,'0')}`)));
+  const months = Array.from(monthSet).sort();
+  const labels = months.map(m => {
+    const [y, mm] = m.split('-');
+    return `${SHORT_MONTHS[parseInt(mm) - 1]} ${y.slice(2)}`;
+  });
+  
+  const colors = ['#c9a961','#60a5fa','#22d3ee','#a78bfa','#4ade80','#fbbf24'];
+  const datasets = idrBanks.map((b, idx) => {
+    const histMap = {};
+    b.history.forEach(h => { histMap[`${h.year}-${String(h.month).padStart(2,'0')}`] = h.balance; });
+    return {
+      label: b.name,
+      data: months.map(m => histMap[m] !== undefined ? Math.round(histMap[m] / 1e6) : null),
+      borderColor: colors[idx % colors.length],
+      backgroundColor: 'transparent', borderWidth: 2, tension: 0.3,
+      pointRadius: 3, pointBackgroundColor: colors[idx % colors.length],
+      spanGaps: true,
+    };
+  });
+  
+  if (legendId) {
+    document.getElementById(legendId).innerHTML = idrBanks.map((b, idx) =>
+      `<span><i style="background:${colors[idx % colors.length]}"></i>${b.name}</span>`).join('');
+  }
+  
+  STATE.charts[canvasId] = new Chart(document.getElementById(canvasId), {
+    type: 'line',
+    data: { labels, datasets },
+    options: chartOpts((v) => v === null ? '-' : `Rp ${fmtCompactM(v)}`)
+  });
+}
+
+// Compact Indonesian rupiah formatter for chart axes
+// Below 1 miliar → "500 jt" (no thousand separator)
+// 1+ miliar → "1 m", "1,5 m", "10 m"
+function fmtCompactM(v) {
+  if (v === 0 || v == null) return '0';
+  const abs = Math.abs(v);
+  const sign = v < 0 ? '-' : '';
+  if (abs < 1000) return `${sign}${Math.round(abs)} jt`;
+  const m = abs / 1000;
+  if (m >= 10) return `${sign}${Math.round(m)} m`;
+  // 1 - 9.9 miliar: 1 decimal, comma separator, strip .0
+  const mStr = m.toFixed(1).replace(/\.0$/, '').replace('.', ',');
+  return `${sign}${mStr} m`;
+}
+
+function chartOpts(labelFmt) {
+  return {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: getCss('--bg2'), titleColor: getCss('--txt'), bodyColor: getCss('--txt2'),
+        borderColor: getCss('--bdr2'), borderWidth: 1, padding: 10,
+        callbacks: { label: (ctx) => `${ctx.dataset.label}: ${labelFmt(ctx.parsed.y)}` }
+      }
+    },
+    scales: {
+      y: {
+        ticks: {
+          font: { size: 11, family: 'JetBrains Mono' },
+          color: getCss('--txt3'),
+          callback: fmtCompactM
+        },
+        grid: { color: getCss('--bdr') },
+        // Reserve min width for Y-axis labels — fixes label crop on first render
+        afterFit: (scale) => { scale.width = Math.max(scale.width || 0, 56); }
+      },
+      x: { ticks: { font: { size: 12, family: 'Manrope' }, color: getCss('--txt2') }, grid: { display: false } }
+    }
+  };
+}
+
+// INIT — gated by login
+
+// ============== APP VERSION ==============
+const APP_VERSION = 'v5.17';
+
+// ============== THEME TOGGLE ==============
+// Theme already applied in <head> IIFE — only need handler here
+const getCss = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+document.getElementById('theme-toggle')?.addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = cur === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('tmms_theme', next);
+  // Re-render charts with new theme colors (no full data reload needed)
+  if (sessionStorage.getItem('tmms_dashboard_authed') === '1' && DATA && DATA.banks) {
+    setTimeout(() => {
+      try {
+        for (const fn of [renderOverview, renderCashflow, renderAR, renderAP, renderTax, renderBank]) { try { fn(); } catch(e){} }
+        setTimeout(drawSparks, 50);
+      } catch(e){}
+    }, 50);
+  }
+});
+
+// ============== PASSWORD GATE ==============
+const PASSWORD_HASH = 'a1d9972701e341f08fd9d6d94704330e55da9598742ed1651e4f4679f543fb25';
+const SESSION_KEY = 'tmms_dashboard_authed';
+
+async function sha256Hex(text) {
+  const buf = new TextEncoder().encode(text);
+  const hashBuf = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function showDashboard() {
+  document.getElementById('login-overlay').style.display = 'none';
+  document.querySelector('.shell').classList.remove('locked');
+}
+
+function showLogin() {
+  document.getElementById('login-overlay').style.display = 'flex';
+  document.querySelector('.shell').classList.add('locked');
+  sessionStorage.removeItem(SESSION_KEY);
+}
+
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const pwd = document.getElementById('login-password').value;
+  const errEl = document.getElementById('login-error');
+  const btn = document.getElementById('login-submit');
+  
+  btn.disabled = true;
+  btn.textContent = 'Memverifikasi...';
+  errEl.textContent = '';
+  
+  try {
+    const hash = await sha256Hex(pwd);
+    if (hash === PASSWORD_HASH) {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      showDashboard();
+      // Start loading dashboard data
+      if (typeof loadAll === 'function') loadAll();
+    } else {
+      errEl.textContent = 'Password salah. Coba lagi.';
+      document.getElementById('login-password').value = '';
+      document.getElementById('login-password').focus();
+    }
+  } catch (err) {
+    errEl.textContent = 'Error: ' + err.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Masuk Dashboard';
+  }
+});
+
+document.getElementById('logout-btn').addEventListener('click', () => {
+  if (confirm('Logout dari dashboard?')) showLogin();
+});
+
+// Check session on load — if already authed in this tab, skip login
+if (sessionStorage.getItem(SESSION_KEY) === '1') {
+  showDashboard();
+  loadAll();  // FIX: call loadAll when session restored
+} else {
+  showLogin();
+}
+
+
+// Refresh button handler
+document.getElementById('refresh-btn')?.addEventListener('click', () => {
+  if (sessionStorage.getItem(SESSION_KEY) === '1') loadAll();
+});
+
+// Set logo src on all .tmms-logo-img elements (extracted to avoid dup base64)
+const TMMS_LOGO_SRC = 'data:image/png;base64,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';
+function applyLogos() { document.querySelectorAll('.tmms-logo-img').forEach(img => { if (!img.src || img.src.length < 100) img.src = TMMS_LOGO_SRC; }); }
+applyLogos();
+document.addEventListener('DOMContentLoaded', applyLogos);
+
+// Periodic auto-refresh: every 15 minutes if tab visible & user authed
+setInterval(() => {
+  if (sessionStorage.getItem(SESSION_KEY) !== '1') return;
+  if (document.hidden) return;
+  if (window.lastFetchTime && Date.now() - window.lastFetchTime < 30 * 1000) return;
+  loadAll();
+}, 15 * 60 * 1000);
+
+// ===== AUTO-REFRESH (Opsi D: visibility change + day change) =====
+// 1) Auto-refresh saat tab kembali aktif setelah idle >5 menit
+document.addEventListener('visibilitychange', () => {
+  if (sessionStorage.getItem(SESSION_KEY) !== '1') return;
+  if (document.hidden) return;
+  if (!window.lastFetchTime) return;
+  
+  const idleMs = Date.now() - window.lastFetchTime;
+  if (idleMs > 5 * 60 * 1000) {
+    const idleMin = Math.round(idleMs / 60000);
+    console.log(`[Auto-refresh] Tab kembali aktif setelah ${idleMin} menit idle, fetch ulang`);
+    loadAll();
+  }
+});
+
+// 2) Auto-refresh saat hari berganti (cutoff H-1 shift)
+setInterval(() => {
+  if (sessionStorage.getItem(SESSION_KEY) !== '1') return;
+  if (document.hidden) return;
+  if (!window.lastFetchDate) return;
+  
+  const today = new Date().toLocaleDateString('en-CA');
+  if (today !== window.lastFetchDate) {
+    console.log(`[Auto-refresh] Hari berganti: ${window.lastFetchDate} → ${today}, fetch ulang H-1 baru`);
+    loadAll();
+  }
+}, 60 * 1000);
+
+console.log('[Auto-refresh] Aktif: visibility change (>5min idle) + day change check (per menit)');
+</script>
+</body>
+</html>
